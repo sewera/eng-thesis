@@ -277,3 +277,6 @@ TSWLatexianTemp*
 
 # macOS files
 .DS_Store
+
+# Output directory
+out/

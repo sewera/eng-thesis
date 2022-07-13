@@ -1,0 +1,123 @@
+\documentclass[
+    bindingoffset=5mm,  % Binding offset
+    footnoteindent=3mm, % Footnote indent
+    hyphenation=true    % Hyphenation turn on/off
+]{tpl/wut-thesis}
+
+\graphicspath{{src/img/}} % Images directory
+\addbibresource{bibliography.bib}
+
+\facultyeiti
+\EngineerThesis
+\langeng
+
+\begin{document}
+
+%------------------
+% Title page
+%------------------
+\institute{TODO: Institute}
+\fieldofstudy{TODO: Telecommunications?}
+\specialization{TODO: Specialization}
+\title{
+  TODO: Thesis title
+}
+% Polish title
+\poltitle{
+  TODO: Tytuł pracy po polsku
+}
+\author{Błażej Sewera}
+\studentnumber{300499}
+\supervisor{mgr inż. Maciej Sosnowski}
+\date{2022}
+\maketitle
+
+%-------------------------------------
+% English abstract
+%-------------------------------------
+\cleardoublepage % Starting from an odd page
+\abstract TODO: Abstract
+\keywords XXX, XXX, XXX
+
+%----------------------------------------
+% Polish abstract
+%----------------------------------------
+\clearpage
+\secondabstract TODO: Streszczenie po polsku
+\secondkeywords XXX, XXX, XXX
+
+\pagestyle{plain}
+
+%--------------
+% Table of Contents
+%--------------
+\cleardoublepage
+\tableofcontents
+
+%------------
+% Sections
+%------------
+\cleardoublepage
+\pagestyle{headings}
+
+\input{src/draft}
+
+ % Można też pisać rozdziały w jednym pliku.
+\clearpage % Zawsze zaczynamy rozdział od nowej strony
+\section{Summary}
+TODO: Summary
+
+%---------------
+% Bibliography
+%---------------
+\cleardoublepage
+\printbibliography
+\clearpage
+
+% Acronym list
+% TODO: Remember to sort acronyms alphabetically manually!
+\acronymlist
+\acronym{EiTI}{Wydział Elektroniki i Technik Informacyjnych}
+\acronym{PW}{Politechnika Warszawska}
+\vspace{0.8cm}
+
+%------------------------------------------
+% Lists of figures, tables, and appendices
+%------------------------------------------
+\pagestyle{plain}
+
+\listoffigurestoc
+\vspace{1cm}
+\listoftablestoc
+\vspace{1cm}
+\listofappendicestoc
+
+%-------------
+% Appendices
+%-------------
+
+%% Figures and tables in appendices are not listed
+% \captionsetup[figure]{list=no}
+% \captionsetup[table]{list=no}
+
+%% Example Appendix 1
+% \clearpage
+% \appendix{Appendix name 1}
+% \begin{figure}[!h]
+% 	\centering \includegraphics[width=0.5\linewidth]{logopw2.png}
+% 	\caption{Obrazek w załączniku.}
+% \end{figure}
+
+%% Example Appendix 2
+% \clearpage
+% \appendix{Appendix name 2}
+% \begin{table}[!h] \centering
+%     \caption{Tabela w załączniku.}
+%     \begin{tabular} {| c | c | r |} \hline
+%         Kolumna 1       & Kolumna 2 & Liczba \\ \hline\hline
+%         cell1           & cell2     & 60     \\ \hline
+%         \multicolumn{2}{|r|}{Suma:} & 123,45 \\ \hline
+%     \end{tabular}
+% \end{table}
+
+\end{document} % Goodnight
