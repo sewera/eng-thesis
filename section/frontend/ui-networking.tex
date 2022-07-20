@@ -1,0 +1,57 @@
+\subsection{UI networking}\label{ui-networking}
+
+The nature of notifications required me to use both REST data fetching
+and asynchronous data pushes from the backend. For the latter, I decided
+to use WebSockets, a standard defined in RFC6455\footnote{RFC6455,
+retrieved 2022-05-31.
+\url{https://www.rfc-editor.org/rfc/rfc6455.html}}, and
+RxJS\footnote{RxJS, retrieved 2022-05-31. \url{https://rxjs.dev/}}, an
+implementation of ReactiveX library\footnote{ReactiveX library,
+retrieved 2022-05-31. \url{https://reactivex.io/}}.
+
+\subsubsection{REST data fetching}\label{rest-data-fetching}
+
+I used simple REST\footnote{REST definition, MDN Web Docs, retrieved
+2022-05-31.
+\url{https://developer.mozilla.org/en-US/docs/Glossary/REST}} requests
+for fetching the notifications that are already on the backend server.
+The standard Fetch browser API\footnote{Fetch browser API, retrieved
+2022-05-31.
+\url{https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API}} was
+sufficient for the task.
+
+\subsubsection{Reactive Raven}\label{reactive-raven}
+
+This project\footnote{Reactive Raven, retrieved 2022-05-31.
+\url{https://github.com/blazejsewera/reactive-raven}} was an
+experiment on using RxJS for all real-time data fetching, enabling the
+separation of concerns in the code, and decoupling the state management
+implementation from the networking implementation.
+
+When searching for the optimal solution for pushing the data to the UI,
+I came across two major solutions:
+
+\begin{itemize}
+  \item
+    Redux Thunks -- okay for fetching some data on user interaction,
+    e.g.~on a button click, but it provides virtually full implementation
+    lock-in, and very little separation of concerns. Fetching data is an
+    action dispatched on a store, so external communication and storing
+    data are dependent on each other.
+  \item
+    Redux Sagas -- good for managing side effects with plain JavaScript,
+    but they use generator functions that yield a different type every
+    time, so they are very problematic to use with strict TypeScript.
+\end{itemize}
+
+Both thunks and sagas did not provide the separation of concerns I
+wanted to achieve. Fetching or acting upon pushed data is a different
+concern than storing it.
+
+As a user, I should not have to dispatch an action on a store, when I
+want to fetch data. Of course, the data can be immediately stored after
+fetching, but this behavior should be injected later, so that there is
+no store implementation lock-in.
+
+This separation of concerns enabled me to migrate from Redux to Zustand
+as my \emph{store} implementation, as described in the next section.

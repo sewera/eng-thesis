@@ -41,7 +41,8 @@
 \RequirePackage{array}         % Advanced table column formats
 \RequirePackage{enumitem}      % Itemize/enumrate
 \RequirePackage{fancyhdr}      % Custom header/footer styles
-\RequirePackage{fourier}       % Adobe Utopia font
+\RequirePackage{tgschola}      % TeX Gyre Schola font
+\RequirePackage[T1]{fontenc}
 \RequirePackage{graphicx}      % Enhanced images support
 \RequirePackage{listings}      % Code listings
 \RequirePackage{longtable}     % Multi-page tables
