@@ -1,27 +1,35 @@
 \subsection{State management in UI}\label{state-management-in-ui}
 
-To simplify the frontend code, I needed to use a single source of truth
-for the data. I used both Redux\footnote{Redux, retrieved 2022-05-31.
-\url{https://redux.js.org/}}, and Zustand\footnote{Zustand, retrieved
-2022-05-31. \url{https://github.com/pmndrs/zustand}} for this task as
-\emph{store} implementations, and Zustand came on top as a simpler
-solution for my application.
+To simplify the frontend code,
+I needed to use a single source of truth for the data.
+I used both Redux~\cite{gaeraon_redux_2022},
+and Zustand~\cite{kato_zustand_2022} for this task
+as \emph{store} implementations,
+and Zustand came on top as a simpler solution for my application.
 
 \subsubsection{Redux}\label{redux}
 
-Redux is great for big applications with lots of components. Being one
-of the most popular state management libraries for React, it was my
-first choice.
+Redux is great for big applications with lots of components.
+Being one of the most popular state management libraries for React,
+it was my first choice.
 
-Unfortunately, it required me to write a lot of boilerplate code, and
-thus was not easily maintainable for a smaller project like Notipie.
+Unfortunately,
+it required me to write a lot of boilerplate code,
+and thus was not easily maintainable
+for a smaller project like Notipie.
 
 \subsubsection{Zustand}\label{zustand}
 
-Zustand is a lot simpler than Redux, requires a lot less boilerplate
-code, and was sufficient for my application. I migrated to it in commit
-\texttt{7677d13}\footnote{commit \texttt{7677d13}, retrieved 2022-05-31.
-\url{https://github.com/blazejsewera/notipie/commit/7677d1335d23994d3563d7672982b5aaf72fbbca}},
-and it reduced the lines of code by over 200. I did not however give up
-the connected components, as they provide better testability and
-separation of concerns, which is worth a bit extra code for that.
+Zustand is a lot simpler than Redux,
+requires a lot less boilerplate code,
+and was sufficient for my application.
+I migrated to it in commit
+\texttt{7677d13}\footnote{
+  commit \texttt{7677d13}, 2022.
+    [Online]. (visited on 2022-05-31).
+  \url{https://github.com/blazejsewera/notipie/commit/7677d1335d23994d3563d7672982b5aaf72fbbca}
+},
+and it reduced the lines of code by over 200.
+I did not, however, give up the connected components,
+as they provide better testability and separation of concerns,
+which is worth a bit extra code.

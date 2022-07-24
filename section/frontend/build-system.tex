@@ -1,17 +1,21 @@
 \subsection{Build system}\label{build-system}
 
-For the build and bundle software, I wanted to use something modern,
-with hot module reloading, easy to use setup scripts, customizable
-development server, and short bundle times.
+For the build and bundle software,
+I wanted to use something modern,
+with hot module reloading,
+easy to use setup scripts,
+customizable development server,
+and short bundle times.
 
 \subsubsection{Snowpack and Vite}\label{snowpack-and-vite}
 
-I started with Snowpack\footnote{Snowpack, retrieved 2022-05-31.
-\url{https://www.snowpack.dev}} and used it until I decided to move to
-Vite\footnote{Vite, retrieved 2022-05-31. \url{https://vitejs.dev}} in
-commit \texttt{c11bc35}\footnote{commit \texttt{c11bc35}, retrieved
-2022-05-31.
-\url{https://github.com/blazejsewera/notipie/commit/c11bc35370f512f35d522a55fcd216c1c80ea75a}}.
+I started with Snowpack~\cite{schott_snowpack_2021}
+and used it until I decided to move to Vite~\cite{you_vite_2022}
+in commit \texttt{c11bc35}\footnote{
+  commit \texttt{c11bc35}, 2021.
+    [Online]. (visited on 2022-05-31).
+  \url{https://github.com/blazejsewera/notipie/commit/c11bc35370f512f35d522a55fcd216c1c80ea75a}
+}.
 
 Snowpack offered both hot module reloading and short bundle times,
 however, there were some minor problems from time to time, the project
@@ -19,14 +23,14 @@ had a slow development, and the alternative, Vite did not seem to have
 those problems.
 
 I tried Vite in my other project, Reactive Raven\footnote{Reactive
-Raven, retrieved 2022-05-31.
-\url{https://github.com/blazejsewera/reactive-raven}}, and the
+  Raven, retrieved 2022-05-31.
+  \url{https://github.com/blazejsewera/reactive-raven}}, and the
 integration with React, TypeScript, Tailwind CSS, and other tools I used
 was seamless, therefore I decided to migrate to it in Notipie as well.
 
 On April 20th, 2022, Snowpack's maintainer stated in the project's
 Readme document (commit \texttt{45456aa})\footnote{project's Readme
-document (commit \texttt{45456aa}), retrieved 2022-05-31.
-\url{https://github.com/FredKSchott/snowpack/blob/45456aa14978460afcb5ce20f7296556d22c7595/README.md}}
+  document (commit \texttt{45456aa}), retrieved 2022-05-31.
+  \url{https://github.com/FredKSchott/snowpack/blob/45456aa14978460afcb5ce20f7296556d22c7595/README.md}}
 that they would no longer maintain the project and mentioned Vite as a
 good alternative for it.

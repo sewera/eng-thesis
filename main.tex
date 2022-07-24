@@ -60,12 +60,16 @@
 \cleardoublepage
 \pagestyle{headings}
 
+\clearpage
 \input{section/project-management/_index.tex}
+
+\clearpage
 \input{section/backend/_index.tex}
+
+\clearpage
 \input{section/frontend/_index.tex}
 
- % Można też pisać rozdziały w jednym pliku.
-\clearpage % Zawsze zaczynamy rozdział od nowej strony
+\clearpage % Always start a section from a new page
 \section{Summary}
 TODO: Summary
 
@@ -76,12 +80,7 @@ TODO: Summary
 \printbibliography
 \clearpage
 
-% Acronym list
-% TODO: Remember to sort acronyms alphabetically manually!
-\acronymlist
-\acronym{DI}{Dependency Injection}
-\acronym{IDE}{Integrated Development Environment}
-\acronym{TDD}{Test-Driven Development}
+\input{section/meta/acronyms.tex}
 \vspace{0.8cm}
 
 %------------------------------------------

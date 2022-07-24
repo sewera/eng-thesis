@@ -1,60 +1,71 @@
 \subsection{TypeScript in UI}\label{typescript-in-ui}
 
-I decided to use TypeScript in my project for the frontend part because
-of its type checking tools, huge popularity, and a growing demand for in
-on the job market.
+I decided to use TypeScript in my project for the frontend part,
+because of its type checking tools,
+huge popularity,
+and a growing demand for in on the job market.
 
 \subsubsection{Choosing the language}\label{choosing-the-language}
 
-When choosing which language to use in the UI, I considered a couple of
-options:
+When choosing which language to use in the UI,
+I considered a couple of options:
 
 \begin{itemize}
   \item
-    plain JavaScript,
+        plain JavaScript,
   \item
-    TypeScript,
+        TypeScript,
   \item
-    Elm, and
+        Elm, and
   \item
-    CoffeeScript.
+        CoffeeScript.
 \end{itemize}
 
-I immediately discarded the last two, due to their smaller popularity
+I immediately discarded the last two,
+due to their smaller popularity,
 compared to JavaScript or TypeScript.
 
-The featureset of the language was also very important to me. JavaScript
-is by far the most popular, but it lacks type annotations or pre-runtime
-type checking. TypeScript and Elm turned out to be winners in the type
-checking toolchain.
+The featureset of the language was also very important to me.
+JavaScript is by far the most popular,
+but it lacks type annotations or pre-runtime type checking.
+TypeScript and Elm turned out to be winners in the type checking toolchain.
 
-TypeScript also has a big advantage of being very similar to plain
-JavaScript, so the transpiled code is very readable.
+TypeScript also has a big advantage of being very similar to plain JavaScript,
+so the transpiled code is very readable.
 
 A big factor was general trend of language's popularity growth.
-TypeScript was a clear winner in this scenario, being third most loved
-language and second most wanted language in the Stack Overflow Developer
-Survey 2021\footnote{Stack Overflow Developer Survey 2021, retrieved
-2022-05-31.
-\url{https://insights.stackoverflow.com/survey/2021\#most-loved-dreaded-and-wanted-language-want}}.
-It was only beaten by Rust and Clojure in the \emph{Most Loved} section,
-both of which are non-frontend languages, and Python in the \emph{Most
-Wanted} section, which is also not a frontend language.
+TypeScript was a clear winner in this scenario,
+being third most loved language
+and second most wanted language
+in the Stack Overflow Developer Survey 2021~\cite{stack_overflow_2021_2021}.
 
-Another report confirming the growing popularity of TypeScript is Github
-Octoverse Report 2021\footnote{Github Octoverse Report 2021, retrieved
-2022-05-31.
-\url{https://octoverse.github.com/\#top-languages-over-the-years}}.
-Since 2017 it beat Ruby, C, C++, C\#, Shell, and PHP and is, as of 2021,
-fourth top language on Github.
+It was only beaten by Rust and Clojure
+in the \emph{Most Loved} section,
+both of which are non-frontend languages,
+and Python in the \emph{Most Wanted} section,
+which is also not a frontend language.
+
+Another report confirming the growing popularity of TypeScript
+is Github Octoverse Report 2021~\cite{github_inc_2021_2021}.
+Since 2017,
+it beat
+Ruby,
+C,
+C++,
+C\#,
+Shell, and
+PHP
+and is, as of 2021, the fourth top language on Github.
 
 \subsubsection{Working with TypeScript}\label{working-with-typescript}
 
-Starting with TypeScript was fairly easy, the toolchain was included in
-the project creation scripts. Most dependencies had good TypeScript
-annotations, or they were completely written in TypeScript, which was
-very helpful for maintaining type safety.
+Starting with TypeScript was fairly easy.
+The toolchain was included in the project creation scripts.
+Most dependencies had good TypeScript annotations,
+or they were completely written in TypeScript,
+which was very helpful for maintaining type safety.
 
-Learning the language was also very easy. I was already familiar with
-JavaScript, so I only needed to learn the type annotations, which were
-very intuitive to use.
+Learning the language was also very easy.
+I was already familiar with JavaScript,
+so I only needed to learn the type annotations,
+which were very intuitive to use.

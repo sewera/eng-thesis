@@ -60,7 +60,9 @@
 % Bibliography in biber
 \RequirePackage[
     backend=biber,
-    style=ieee
+    style=ieee,
+    maxnames=4,
+    urldate=ymd
 ]{biblatex}
 % Custom figure and table captions
 \RequirePackage[
