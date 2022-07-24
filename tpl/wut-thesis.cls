@@ -185,16 +185,6 @@
 	}
 }
 
-%-----------------
-% Wybór wydziału
-%-----------------
-\newcommand{\facultyeiti}{
-    \newcommand{\@faculty}{eiti}
-}
-\newcommand{\facultymeil}{
-    \newcommand{\@faculty}{meil}
-}
-
 %--------------------------
 % Strona tytułowa - makra
 %--------------------------
@@ -236,7 +226,7 @@
     \pagenumbering{gobble}
 
     \begin{center}
-        \includegraphics[width=\textwidth]{tpl/\@lang/header/\@faculty.pdf} \\
+        \includegraphics[width=\textwidth]{tpl/\@lang/header/eiti.pdf} \\
         \vspace{3em}
         \ifnum \pdf@strcmp{\@lang}{pl} = 0
             Instytut \@institute \\
@@ -344,7 +334,7 @@
     \begin{figure}[ht]
         \vspace{-55pt}
         \noindent\makebox[\textwidth]{
-        \includegraphics[width=1.19\textwidth]{tpl/\@lang/authorship/\@faculty.pdf}
+        \includegraphics[width=1.19\textwidth]{tpl/\@lang/authorship/eiti.pdf}
         }
     \end{figure}
 }
@@ -357,7 +347,7 @@
     \begin{figure}[ht]
         \vspace{-55pt}
         \noindent\makebox[\textwidth]{
-        \includegraphics[width=1.19\textwidth]{tpl/\@lang/license/\@faculty.pdf}
+        \includegraphics[width=1.19\textwidth]{tpl/\@lang/license/eiti.pdf}
         }
     \end{figure}
 }
