@@ -59,7 +59,7 @@
 \cleardoublepage
 \pagestyle{headings}
 
-\clearpage
+\clearpage % Always start a section from a new page
 \input{section/project-management/_index.tex}
 
 \clearpage
@@ -68,9 +68,8 @@
 \clearpage
 \input{section/frontend/_index.tex}
 
-\clearpage % Always start a section from a new page
-\section{Summary}
-TODO: Summary
+\clearpage
+\input{section/summary/_index.tex}
 
 %---------------
 % Bibliography
@@ -120,5 +119,12 @@ TODO: Summary
 %         \multicolumn{2}{|r|}{Suma:} & 123,45 \\ \hline
 %     \end{tabular}
 % \end{table}
+
+%-------------
+% Legal
+%-------------
+\clearpage
+\makeauthorship
+\makelicense
 
 \end{document} % Goodnight

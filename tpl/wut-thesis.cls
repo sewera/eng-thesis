@@ -1,8 +1,9 @@
-%%------------------------------------------------%%
-%%  Engineer's & Master's Thesis Template         %%
-%%  Copyleft by Artur M. Brodzki & Piotr Woźniak  %%
-%%  Warsaw University of Technology, 2019-2022    %%
-%%------------------------------------------------%%
+%%-------------------------------------------------%%
+%%  Engineer's & Master's Thesis Template          %%
+%%  Copyleft by Artur M. Brodzki & Piotr Woźniak   %%
+%%  Improvements and refactoring by Błażej Sewera  %%
+%%  Warsaw University of Technology, 2019-2022     %%
+%%-------------------------------------------------%%
 
 \ProvidesClass{tpl/wut-thesis}
 
@@ -41,7 +42,8 @@
 \RequirePackage{array}         % Advanced table column formats
 \RequirePackage{enumitem}      % Itemize/enumrate
 \RequirePackage{fancyhdr}      % Custom header/footer styles
-\RequirePackage{tgschola}      % TeX Gyre Schola font
+\RequirePackage{tgschola}      % TeX Gyre Schola font (Serif, document default), family name: 'qcs'
+\RequirePackage{tgheros}       % TeX Gyre Heros font (Sans-serif),               family name: 'qhv'
 \RequirePackage[T1]{fontenc}
 \RequirePackage{graphicx}      % Enhanced images support
 \RequirePackage{listings}      % Code listings
@@ -123,6 +125,7 @@
 	\thispagestyle{plain}
 	\oldsection
 }
+\newcommand{\tgherosfont}{\fontfamily{qhv}\selectfont}
 
 %------------------
 % Header & footer
@@ -146,7 +149,7 @@
 }
 
 %---------------------
-% Wybór języka pracy
+% Language choice
 %---------------------
 \newcommand{\langpol}{
     \newcommand{\@lang}{pl}
@@ -186,7 +189,7 @@
 }
 
 %--------------------------
-% Strona tytułowa - makra
+% Title page - macros
 %--------------------------
 \newcommand{\EngineerThesis}{
     \newcommand{\@ThesisType}{inz}
@@ -217,7 +220,7 @@
 }
 
 %------------------
-% Strona tytułowa
+% Title page
 %------------------
 \renewcommand{\maketitle}{
     \linespread{1.15}
@@ -226,55 +229,57 @@
     \pagenumbering{gobble}
 
     \begin{center}
-        \includegraphics[width=\textwidth]{tpl/\@lang/header/eiti.pdf} \\
-        \vspace{3em}
-        \ifnum \pdf@strcmp{\@lang}{pl} = 0
-            Instytut \@institute \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{en} = 0
-            Institute of \@institute \\
-        \fi
-        \vspace{4em}
-        \includegraphics[width=\textwidth]{tpl/\@lang/title/\@ThesisType.pdf} \\
-        \vspace{2em}
-        \ifnum \pdf@strcmp{\@lang}{pl} = 0
-            na~kierunku \@fieldofstudy \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{en} = 0
-            in~the~field~of~study \@fieldofstudy \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{pl} = 0
-            w~specjalności \@specialization \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{en} = 0
-            and~specialization \@specialization \\
-        \fi
-        \vspace{4em}
-        \large \@title \\
-        \vspace{4em}
-        \LARGE \@author \\
-        \normalsize
-        \ifnum \pdf@strcmp{\@lang}{pl} = 0
-            Numer~albumu \@studentnumber \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{en} = 0
-            student record book number \@studentnumber \\
-        \fi
-        \vspace{4em}
-        \ifnum \pdf@strcmp{\@lang}{pl} = 0
-            promotor \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{en} = 0
-            thesis supervisor \\
-        \fi
-        \@supervisor \\
-        \vfill
-        \ifnum \pdf@strcmp{\@lang}{pl} = 0
-            WARSZAWA \@date
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{en} = 0
-            WARSAW \@date
-        \fi
+        { \tgherosfont
+            \includegraphics[width=\textwidth]{tpl/\@lang/header/eiti.pdf} \\
+            \vspace{3em}
+            \ifnum \pdf@strcmp{\@lang}{pl} = 0
+                Instytut \@institute \\
+            \fi
+            \ifnum \pdf@strcmp{\@lang}{en} = 0
+                Institute of \@institute \\
+            \fi
+            \vspace{4em}
+            \includegraphics[width=\textwidth]{tpl/\@lang/title/\@ThesisType.pdf} \\
+            \vspace{2em}
+            \ifnum \pdf@strcmp{\@lang}{pl} = 0
+                na~kierunku \@fieldofstudy \\
+            \fi
+            \ifnum \pdf@strcmp{\@lang}{en} = 0
+                in~the~field~of~study \@fieldofstudy \\
+            \fi
+            \ifnum \pdf@strcmp{\@lang}{pl} = 0
+                w~specjalności \@specialization \\
+            \fi
+            \ifnum \pdf@strcmp{\@lang}{en} = 0
+                and~specialization \@specialization \\
+            \fi
+            \vspace{4em}
+            \large \@title \\
+            \vspace{4em}
+            \LARGE \@author \\
+            \normalsize
+            \ifnum \pdf@strcmp{\@lang}{pl} = 0
+                Numer~albumu \@studentnumber \\
+            \fi
+            \ifnum \pdf@strcmp{\@lang}{en} = 0
+                student record book number \@studentnumber \\
+            \fi
+            \vspace{4em}
+            \ifnum \pdf@strcmp{\@lang}{pl} = 0
+                promotor \\
+            \fi
+            \ifnum \pdf@strcmp{\@lang}{en} = 0
+                thesis supervisor \\
+            \fi
+            \@supervisor \\
+            \vfill
+            \ifnum \pdf@strcmp{\@lang}{pl} = 0
+                WARSZAWA \@date
+            \fi
+            \ifnum \pdf@strcmp{\@lang}{en} = 0
+                WARSAW \@date
+            \fi
+        } % \tgherosfont
     \end{center}
 
     \pagenumbering{arabic}
@@ -282,7 +287,7 @@
 }
 
 %-------------------------
-% Streszczenie po polsku
+% Polish abstract
 %-------------------------
 \renewcommand{\abstract}{
     \thispagestyle{plain}
@@ -304,7 +309,7 @@
 }
 
 %----------------------------
-% Streszczenie po angielsku
+% English abstract
 %----------------------------
 \newcommand{\secondabstract}{
     \thispagestyle{plain}
@@ -327,10 +332,12 @@
 }
 
 %----------------------------
-% Oświadczenie o autorstwie
+% Authorship statement
 %----------------------------
 \newcommand{\makeauthorship}{
-    \thispagestyle{plain}
+    \thispagestyle{empty}
+    \pagenumbering{gobble}
+
     \begin{figure}[ht]
         \vspace{-55pt}
         \noindent\makebox[\textwidth]{
@@ -340,10 +347,12 @@
 }
 
 %----------------------------
-% Oświadczenie o licencji
+% License statement
 %----------------------------
 \newcommand{\makelicense}{
-    \thispagestyle{plain}
+    \thispagestyle{empty}
+    \pagenumbering{gobble}
+
     \begin{figure}[ht]
         \vspace{-55pt}
         \noindent\makebox[\textwidth]{
@@ -380,7 +389,7 @@
 }
 
 %--------------------------
-% Skrót (akronim) - makro
+% Acronym list
 %--------------------------
 \newcommand{\acronymlist}{
     \ifnum \pdf@strcmp{\@lang}{pl} = 0
@@ -396,7 +405,7 @@
 }
 
 %-------------------
-% Spis załączników
+% Appendix list
 %-------------------
 \newcommand{\nocontentsline}[3]{}
 \newcommand{\tocless}[2]{%
