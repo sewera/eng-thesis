@@ -6,6 +6,7 @@
 
 \graphicspath{{src/img/}} % Images directory
 \addbibresource{bibliography.bib}
+\DeclareBibliographyCategory{commit}
 
 \EngineerThesis
 \langeng
@@ -69,13 +70,17 @@
 \input{section/frontend/_index.tex}
 
 \clearpage
+\input{section/development/_index.tex}
+
+\clearpage
 \input{section/summary/_index.tex}
 
 %---------------
 % Bibliography
 %---------------
 \cleardoublepage
-\printbibliography
+\printbibliography[notcategory=commit]
+\printbibliography[category=commit,title=Additional references to commits]
 \clearpage
 
 \input{section/meta/acronyms.tex}

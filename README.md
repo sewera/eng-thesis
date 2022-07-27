@@ -23,8 +23,8 @@ with additional cleanup and refactoring.
 
 ## TODO
 
-- [ ] Sort out citations and acronyms in frontend dir, starting from
-      [ui-design](section/frontend/ui-design.tex)
+- [ ] Update citations to commits, and group them properly (see refactoring.tex)
+- [ ] Add appendix references
 
 ## Troubleshooting
 
