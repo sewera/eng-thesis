@@ -1,0 +1,80 @@
+\subsection{The benefits of using Go and its standard library}\label{sec:the-benefits-of-using-go-and-its-standard-library}
+
+Go is an excellent language for writing microservices.
+Its focus on this one task
+and pragmatism in adding features to the language by its authors,
+resulted in an easy to understand and use,
+yet very powerful set of tools.
+
+\subsubsection{Goroutines and channels}\label{sec:goroutines-and-channels}
+
+Among of the best features of the Go language lay goroutines and channels.
+They make concurrent programming a lot easier, compared to other languages.
+I used both goroutines and channels
+for inter-object communication in \texttt{domain} package.
+
+For example, in {tag.go}~(appendix~\ref{apx:concurrency-in-go}),
+after the Tag object is created,
+the constructor calls
+the \texttt{start} method~(listing~\ref{lst:start-method-in-tag}).
+It is running a new goroutine for every Tag instance,
+enabling them to asynchronously communicate with other objects.
+
+The Tag is actively listening
+on the Notification channel (\texttt{NotificationChan}),
+and every time a new Notification arrives,
+the \texttt{broadcast} method~(listing~\ref{lst:broadcast-method-in-tag})
+is executed.
+
+The \texttt{broadcast} method in turn sends that Notification
+to every User subscribed to this Tag.
+The flow is presented in figure~\ref{fig:notification-flowchart}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm,keepaspectratio]{chart/out/notification-flowchart.pdf}
+  \caption{Notification flow in \texttt{domain}}
+  \label{fig:notification-flowchart}
+\end{figure}
+
+There is an obvious problem with this approach.
+When a User is subscribed to two Tags,
+and one App has those two Tags assigned,
+then that User can get the same Notification twice
+(figure~\ref{fig:duplicated-notification}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm,keepaspectratio]{chart/out/duplicated-notification.pdf}
+  \caption{Duplicated Notification flow}
+  \label{fig:duplicated-notification}
+\end{figure}
+
+There are two solutions I could think of.
+
+\paragraph*{Solution 1}
+
+There is a new component in the domain, Router.
+It is a centralized component,
+that knows which App is connected to which Tag,
+and which User is subscribed to those Tags.
+
+// TODO: finish (notes from e-book)
+
+\subsubsection{Refactoring to the standards}\label{sec:refactoring-to-the-standards}
+
+During this project,
+I refactored my functions to better suit
+the Go standard library.
+
+For instance,
+in commit \texttt{00547cd}\footfullcite{sewera_chorecoreproducer_2022},
+I refactored the \texttt{ToJSON} method
+to better suit the standard signatures
+(appendix~\ref{apx:method-signature-refactoring-in-go}),
+i.e. to return the byte array and error,
+just like the \texttt{Marshal} method
+from the \texttt{json} package~\cite{cox_json_2022}
+in the standard library.
+
+\addtocategory{commit}{sewera_chorecoreproducer_2022}

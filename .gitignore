@@ -280,3 +280,6 @@ TSWLatexianTemp*
 
 # Output directory
 out/
+
+# JS
+node_modules/

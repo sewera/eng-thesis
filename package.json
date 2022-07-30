@@ -1,0 +1,14 @@
+{
+  "name": "eng-thesis",
+  "version": "0.0.1",
+  "description": "Engineering Thesis",
+  "author": "Blazej Sewera <code@sewera.dev>",
+  "license": "Copyright (c) 2022 Blazej Sewera",
+  "private": true,
+  "scripts": {
+    "mmdc": "mmdc"
+  },
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^9.1.4"
+  }
+}

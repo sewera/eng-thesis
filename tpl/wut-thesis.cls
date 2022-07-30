@@ -42,18 +42,18 @@
 \RequirePackage{array}         % Advanced table column formats
 \RequirePackage{enumitem}      % Itemize/enumrate
 \RequirePackage{fancyhdr}      % Custom header/footer styles
+\RequirePackage{lmodern}
 \RequirePackage{tgschola}      % TeX Gyre Schola font (Serif, document default), family name: 'qcs'
 \RequirePackage{tgheros}       % TeX Gyre Heros font (Sans-serif),               family name: 'qhv'
 \RequirePackage[T1]{fontenc}
 \RequirePackage{graphicx}      % Enhanced images support
-\RequirePackage{listings}      % Code listings
 \RequirePackage{longtable}     % Multi-page tables
 \RequirePackage{multirow}      % Advanced table cells
 \RequirePackage{setspace}      % Set space between lines
 \RequirePackage{scrextend}     % Allows \addmargin environment
 \RequirePackage{tablefootnote} % Table footnotes
 \RequirePackage{tocloft}       % Custom ToC/LoF/LoT
-\RequirePackage{url}           % URL-sensitive line breaks
+\RequirePackage[hyphens]{url}  % URL-sensitive line breaks
 \RequirePackage{xspace}        % Remove duplicated spaces
 
 %----------------------------
@@ -64,8 +64,13 @@
     backend=biber,
     style=ieee,
     maxnames=4,
+    sorting=nty,
+    date=ymd,
     urldate=ymd
 ]{biblatex}
+% Break URLs in the middle if necessary
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 % Custom figure and table captions
 \RequirePackage[
     font=small,
@@ -89,6 +94,7 @@
 % Clickable hyperlinks
 \RequirePackage{hyperref}
 \hypersetup{
+    breaklinks,
     colorlinks,
     citecolor=black,
     filecolor=black,
@@ -100,6 +106,38 @@
     protrusion=true,
     expansion=true
 ]{microtype}
+% Code listings
+\RequirePackage[dvipsnames]{xcolor} % 68 additional named colors (CMYK)
+\RequirePackage{listings}
+\lstdefinestyle{codestyle}{
+    commentstyle=\color{darkgray},
+    keywordstyle=\color{Mulberry},
+    stringstyle=\color{RoyalBlue},
+    numberstyle=\tiny\color{Gray},
+    basicstyle=\footnotesize\bfseries\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    prebreak=\space\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow}}\space,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+}
+\lstset{style=codestyle}
+% listings custom syntax
+%% diff
+\lstdefinelanguage{diff}{
+    morecomment=[f][\color{RoyalBlue}]{@@}, % group identifier
+    morecomment=[f][\color{BrickRed}]-,     % deleted lines 
+    morecomment=[f][\color{OliveGreen}]+,   % added lines
+    morecomment=[f][\color{Mulberry}]{---}, % diff header lines (must appear after +,-)
+    morecomment=[f][\color{Mulberry}]{+++},
+}
 
 %----------------------
 % Basic configuration
