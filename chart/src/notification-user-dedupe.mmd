@@ -1,0 +1,10 @@
+flowchart LR
+A[App] -->|Notification| T1[Tag 1]
+A -->|Notification| T2[Tag 2]
+T1 -->|Notification| D
+T2 -->|Notification| D
+subgraph U[User]
+  D([Dedupe]) -- Different than last --> S((Save))
+  D -- Same as last --x X((Drop))
+  DB[(Last Notification ID)] <-.-> D
+end

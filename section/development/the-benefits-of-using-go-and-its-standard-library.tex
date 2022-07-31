@@ -52,7 +52,7 @@ then that User can get the same Notification twice
 
 There are two solutions I could think of.
 
-\paragraph*{Solution 1}
+\paragraph*{Solution 1}\label{par:duplication-solution-1}
 
 This solution assumes the following:
 
@@ -76,6 +76,40 @@ in the domain, which introduces complexity.
 Furthermore, the Router has to be
 a Singleton~\cite[pp.~127-134]{gamma_design_1994}
 in order to process all the Notifications.
+
+It would create a bottleneck,
+as the Router would need to process every new Notification
+that goes through the application.
+
+The Router needs a table referencing
+Tags and Users subscribed to them.
+Provided that there are $n$ Tags,
+and every Tag has $m$ Users subscribed to it,
+the lookup complexity of such table
+would be $O(n \cdot m)$,
+because the table would need to be
+scanned in its entirety to determine
+all the Users that need to get the Notification.
+It could be optimized into $O(m \cdot \log n)$
+if the Tag list is sorted,
+but the sorting would introduce
+more complexity in the Router.
+
+The time complexity was not the main concern, though.
+The main problem would be
+the additional code complexity,
+compared to the second solution.
+
+\paragraph*{Solution 2}\label{par:duplication-solution-2}
+
+This solution assumes the following:
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15.5cm,keepaspectratio]{chart/out/notification-user-dedupe.pdf}
+  \caption{Notification Deduplication in User}
+  \label{fig:notification-user-dedupe}
+\end{figure}
 
 // TODO: finish (notes from e-book)
 
