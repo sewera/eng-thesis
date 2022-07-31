@@ -15,6 +15,15 @@ make watch
 ## Tips
 
 - Use [Semantic Line Breaks](https://sembr.org/)
+- Figure template:
+  ```latex
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm,keepaspectratio]{path}
+    \caption{Caption}
+    \label{fig:label}
+  \end{figure}
+  ```
 
 Based on [ArturB/WUT-Thesis](https://github.com/ArturB/WUT-Thesis),
 with additional cleanup and refactoring.

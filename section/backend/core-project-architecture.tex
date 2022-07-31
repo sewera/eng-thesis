@@ -1,43 +1,43 @@
-\subsection{Core project architecture}\label{core-project-architecture}
+\subsection{Core project architecture}\label{sec:core-project-architecture}
 
 The project on the top-level is structured over 4 directories:
 
 \begin{itemize}
-  \item
-        \texttt{cmd} -- entry point to the application (\texttt{main})
-  \item
-        \texttt{internal} -- application-specific code
-  \item
-        \texttt{pkg} -- reusable utils, not specific to the application
-  \item
-        \texttt{test} -- black box integration test code
+      \item
+            \texttt{cmd} -- entry point to the application (\texttt{main})
+      \item
+            \texttt{internal} -- application-specific code
+      \item
+            \texttt{pkg} -- reusable utils, not specific to the application
+      \item
+            \texttt{test} -- black box integration test code
 \end{itemize}
 
 \subsubsection{
-  \texorpdfstring
-  {The \textit{internal} directory}
-  {The internal directory}
-}\label{the-internal-directory}
+      \texorpdfstring
+      {The \textit{internal} directory}
+      {The internal directory}
+}\label{sec:the-internal-directory}
 
 Application-specific code is split into 5 directories
 representing the levels of abstraction:
 
 \begin{itemize}
-  \item
-        \texttt{domain} -- business logic,
-        defines data structures and communication of domain objects
-        on the highest level of abstraction,
-  \item
-        \texttt{grid} -- lower level of abstraction than domain,
-        defines proxies that convert network models into domain models,
-        creates and organizes domain objects into a grid,
-        in which those objects can communicate,
-  \item
-        \texttt{impl} -- implements network endpoints,
-        WebSockets, and persistence,
-  \item
-        \texttt{infra} -- configures the application
-        and sets up the context for DI,
-  \item
-        \texttt{model} -- defines network data models.
+      \item
+            \texttt{domain} -- business logic,
+            defines data structures and communication of domain objects
+            on the highest level of abstraction,
+      \item
+            \texttt{grid} -- lower level of abstraction than domain,
+            defines proxies that convert network models into domain models,
+            creates and organizes domain objects into a grid,
+            in which those objects can communicate,
+      \item
+            \texttt{impl} -- implements network endpoints,
+            WebSockets, and persistence,
+      \item
+            \texttt{infra} -- configures the application
+            and sets up the context for DI,
+      \item
+            \texttt{model} -- defines network data models.
 \end{itemize}

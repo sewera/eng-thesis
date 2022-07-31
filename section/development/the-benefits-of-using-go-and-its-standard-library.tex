@@ -54,10 +54,28 @@ There are two solutions I could think of.
 
 \paragraph*{Solution 1}
 
+This solution assumes the following:
+
 There is a new component in the domain, Router.
 It is a centralized component,
 that knows which App is connected to which Tag,
 and which User is subscribed to those Tags.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15.5cm,keepaspectratio]{chart/out/notification-router.pdf}
+  \caption{Notification Router}
+  \label{fig:notification-router}
+\end{figure}
+
+With this approach,
+the User component is simpler,
+as it does not need any deduplication logic.
+However, there is a whole new component
+in the domain, which introduces complexity.
+Furthermore, the Router has to be
+a Singleton~\cite[pp.~127-134]{gamma_design_1994}
+in order to process all the Notifications.
 
 // TODO: finish (notes from e-book)
 

@@ -52,6 +52,9 @@
 % Table of Contents
 %--------------
 \cleardoublepage
+% Limit the depth to 3 levels:
+% section, subsection, and subsubsection
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 %------------
@@ -83,7 +86,7 @@
 \printbibliography[category=commit,title=Additional references to commits]
 \clearpage
 
-\input{section/meta/acronyms.tex}
+\input{meta/acronymlist.tex}
 \vspace{0.8cm}
 
 %------------------------------------------
