@@ -57,9 +57,10 @@ There are two solutions I could think of.
 This solution assumes the following:
 
 There is a new component in the domain, Router.
-It is a centralized component,
+It is a centralized component
 that knows which App is connected to which Tag,
-and which User is subscribed to those Tags.
+and which User is subscribed to those Tags
+(figure~\ref{fig:notification-router}).
 
 \begin{figure}[h]
   \centering
@@ -104,6 +105,13 @@ compared to the second solution.
 
 This solution assumes the following:
 
+The deduplication logic is inside the User,
+every Notification is sent by a Tag to a User
+if the User is subscribed to the Tag.
+The User decides if it keeps the Notification
+or drops it as a duplicate
+(figure~\ref{fig:notification-user-dedupe}).
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=15.5cm,keepaspectratio]{chart/out/notification-user-dedupe.pdf}
@@ -111,7 +119,37 @@ This solution assumes the following:
   \label{fig:notification-user-dedupe}
 \end{figure}
 
-// TODO: finish (notes from e-book)
+With this approach,
+the User component is more complex,
+but the overall domain structure is simpler.
+The Users are distributed across the application,
+and only need to deduplicate their own Notifications.
+
+The solution is parallelized by nature,
+so there is no bottleneck
+like with the previous example.
+
+The solution is also more scalable.
+As the application grows,
+and more Notifications go through it,
+we can start to observe race conditions.
+In result,
+duplicated messages from different Tags
+will start to appear.
+
+Then, we can simply extend the length of
+previous Notification IDs that we check.
+In the worst case,
+we would have to keep as many previous
+Notification IDs,
+as there are Tags the User is subscribed to.
+
+The code complexity is also superior
+to the previous approach.
+Dropping or saving a Notification is a trivial task,
+with a simple algorithm:
+when the current Notification ID is found in the
+already received IDs, drop it; otherwise, save it.
 
 \subsubsection{Refactoring to the standards}\label{sec:refactoring-to-the-standards}
 
