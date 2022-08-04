@@ -63,6 +63,7 @@
 \RequirePackage[
     backend=biber,
     style=ieee,
+    dashed=false,
     maxnames=4,
     sorting=nty,
     date=ymd,

@@ -32,8 +32,6 @@ with additional cleanup and refactoring.
 
 ## TODO
 
-Fix the build
-
 - [ ] describe the `domain` package in core,
 - [ ] write about the decisions made in the project,
 - [ ] read e-book notes, and decide on the necessary notes,
