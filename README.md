@@ -59,6 +59,17 @@ sudo pacman -S \
   perl-yaml-tiny
 ```
 
+On Ubuntu, simply run:
+
+```sh
+sudo apt install \
+  texlive-full \
+  texlive-extra-utils \
+  latexmk
+```
+
+Note that it takes quite a bit of time.
+
 To properly set up the line wrapping in the `listings` package,
 all of the above options have to be set up:
 
