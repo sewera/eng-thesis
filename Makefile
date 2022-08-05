@@ -12,7 +12,9 @@ META_FILES=$(shell find $(META_DIR) -type f)
 
 SRC_DIR=src
 OUT_DIR=out
-OUT_PDF=main.pdf
+OUT_PDF_NAME=main.pdf
+OUT_PDF=$(OUT_DIR)/$(OUT_PDF_NAME)
+DIST_PDF=sewera-eng-thesis.pdf
 
 CHART_DIR=chart
 CHART_SRC_DIR=$(CHART_DIR)/$(SRC_DIR)
@@ -31,18 +33,18 @@ ACRONYMS_OUT_FILE=$(META_OUT_DIR)/$(ACRONYMS_SORTED_FILE)
 DEPENDENCIES_DIR=node_modules
 IGNORED_FILES=indent.log
 
-.PHONY: clean nuke tidy
+.PHONY: all install pdf chart sort-acronyms dist rerender rmout clean nuke tidy watch open
 
 LATEXMK_OPTIONS=-output-directory=$(OUT_DIR) -bibtex -pdf -pdflatex=pdflatex
 
-all: install pdf
+all: install $(OUT_PDF)
 
 
 # Build PDF
 
-pdf: $(OUT_DIR)/$(OUT_PDF)
+pdf: $(OUT_PDF)
 
-$(OUT_DIR)/$(OUT_PDF): $(ACRONYMS_OUT_FILE) $(CHART_OUT_FILES) $(SRC_TEX) $(SRC_BIB) $(SECTION_FILES) $(APPENDIX_FILES) $(META_FILES)
+$(OUT_PDF): $(ACRONYMS_OUT_FILE) $(CHART_OUT_FILES) $(SRC_TEX) $(SRC_BIB) $(SECTION_FILES) $(APPENDIX_FILES) $(META_FILES)
 	@latexmk \
 		$(LATEXMK_OPTIONS) \
 		-synctex=1 \
@@ -57,7 +59,7 @@ $(OUT_DIR)/$(OUT_PDF): $(ACRONYMS_OUT_FILE) $(CHART_OUT_FILES) $(SRC_TEX) $(SRC_
 chart: $(CHART_OUT_FILES)
 
 $(CHART_OUT_DIR)/%.pdf: $(CHART_SRC_DIR)/%.mmd | $(CHART_OUT_DIR)
-	@yarn mmdc --pdfFit -b transparent -i $< -o $@
+	@yarn mmdc --pdfFit -b transparent -i $< -o $@ > /dev/null
 	@echo "> chart $@ rendered"
 
 $(CHART_OUT_DIR):
@@ -84,18 +86,20 @@ install:
 	@yarn
 	@echo "> dependencies installed"
 
-rerender: clean pdf
-	@echo "> clean render done"
+rerender: rmout pdf
+	@echo "> rerender done"
 
-tidy:
-	@latexmk \
-		$(LATEXMK_OPTIONS) \
-		-c > /dev/null
-	@echo "> helper files cleaned"
+dist: $(DIST_PDF) clean
 
-clean:
+$(DIST_PDF): $(OUT_PDF)
+	@cp $(OUT_PDF) $(DIST_PDF)
+	@echo "> $(DIST_PDF) created"
+
+rmout:
 	@rm -rf $(OUT_DIR)
 	@echo "> rm $(OUT_DIR)"
+
+clean: rmout
 	@rm -rf $(CHART_OUT_DIR)
 	@echo "> rm $(CHART_OUT_DIR)"
 	@rm -rf $(META_OUT_DIR)
@@ -104,16 +108,31 @@ clean:
 	@echo "> rm $(IGNORED_FILES)"
 
 nuke: clean
+	@rm -rf $(DIST_PDF)
 	@rm -rf $(DEPENDENCIES_DIR)
 	@echo "> rm $(DEPENDENCIES_DIR)"
 
 
 # Development
 
-watch: chart
+watch:
 	@echo "> rendering pdf in continuous watch mode"
 	@echo "> ctrl+c to stop"
-	@latexmk \
-		$(LATEXMK_OPTIONS) \
-		-pvc \
-		$(SRC_TEX) > /dev/null
+	@while :; do \
+		if ! $(MAKE) pdf > /dev/null; then \
+			echo "> error when rendering pdf, see $(OUT_DIR)/main.log"; \
+		fi; \
+		sleep 5; \
+		done
+
+
+# Open
+
+OPEN_CMD=xdg-open
+
+ifeq (, $(shell which xdg-open))
+OPEN_CMD=open
+endif
+
+open: pdf
+	@$(OPEN_CMD) $(OUT_PDF)

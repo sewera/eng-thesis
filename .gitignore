@@ -283,3 +283,5 @@ out/
 
 # JS
 node_modules/
+
+/*.pdf
