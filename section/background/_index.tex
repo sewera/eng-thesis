@@ -1,0 +1,30 @@
+\section{Background}\label{sec:background}
+
+We get notifications every day.
+Unfortunately,
+those notifications either arrive
+to our e-mail inboxes,
+or worse,
+we have to manually check
+each and every website an event may have occurred on.
+
+I personally use CI/CD pipelines
+on Github Actions for my private projects,
+and Jenkins for work.
+I get loads of e-mail notifications from Icinga.
+I check production servers' state on Grafana,
+which also sends notifications
+for severe events to my work Microsoft Teams.
+I check my private server health
+with a custom shell script.
+The number of notifications I get every day
+is usually too big to wrap my head around,
+let alone the fact,
+that they come from at least five different sources.
+
+Notipie is a response to this problem.
+It is specifically designed
+to handle custom sources of notifications,
+provide easy setup,
+good performance,
+and a simple interface.

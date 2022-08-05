@@ -284,4 +284,8 @@ out/
 # JS
 node_modules/
 
+# Dist pdf
 /*.pdf
+
+# Latexindent temp files
+*.temp.tex

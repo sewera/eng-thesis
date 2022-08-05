@@ -96,13 +96,15 @@ version:
 	@yarn version --minor --message "chore: release"
 	@git push --follow-tags
 
-dist: $(DIST_PDF) clean
+dist: $(DIST_PDF)
 
 $(DIST_PDF): $(OUT_PDF)
 	@cp $(OUT_PDF) $(DIST_PDF)
 	@echo "> $(DIST_PDF) created"
 
 rmout:
+	@rm -f $(DIST_PDF)
+	@echo "> rm $(DIST_PDF)"
 	@rm -rf $(OUT_DIR)
 	@echo "> rm $(OUT_DIR)"
 

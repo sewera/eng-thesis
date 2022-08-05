@@ -19,11 +19,11 @@
 \fieldofstudy{TODO: Telecommunications?}
 \specialization{TODO: Specialization}
 \title{
-  TODO: Thesis title
+  Notipie -- notification aggregator
 }
 % Polish title
 \poltitle{
-  TODO: Tytuł pracy po polsku
+  Notipie -- agregator powiadomień
 }
 \author{Błażej Sewera}
 \studentnumber{300499}
@@ -35,16 +35,13 @@
 % English abstract
 %-------------------------------------
 \cleardoublepage % Starting from an odd page
-\abstract TODO: Abstract
-\keywords XXX, XXX, XXX
+\input{meta/abstract-en.tex}
 
 %----------------------------------------
 % Polish abstract
 %----------------------------------------
 \clearpage
-\secondabstract TODO: Streszczenie po polsku
-\secondkeywords XXX, XXX, XXX
-
+\input{meta/abstract-pl.tex}
 \pagestyle{plain}
 
 %--------------
@@ -62,7 +59,12 @@
 \cleardoublepage
 \pagestyle{headings}
 
-\clearpage % Always start a section from a new page
+% Always start a section from a new page
+
+\clearpage
+\input{section/background/_index.tex}
+
+\clearpage
 \input{section/project-management/_index.tex}
 
 \clearpage

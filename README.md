@@ -68,6 +68,12 @@ sudo apt install \
 
 Note that it takes quite a bit of time.
 
+On MacOS:
+
+```sh
+brew install latexindent
+```
+
 To properly set up the line wrapping in the `listings` package,
 all of the above options have to be set up:
 
