@@ -92,7 +92,7 @@ rerender: rmout pdf
 release: $(DIST_PDF)
 	@yarn version --minor --message "chore: release"
 	@git push --follow-tags
-	@gh release create $(shell git tag | sort -r | head -n 1) $(DIST_PDF)
+	@gh release create $(shell git tag | sort -r | head -n 1) $(DIST_PDF) --generate-notes
 
 dist: $(DIST_PDF) clean
 
