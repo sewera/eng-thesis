@@ -33,7 +33,7 @@ ACRONYMS_OUT_FILE=$(META_OUT_DIR)/$(ACRONYMS_SORTED_FILE)
 DEPENDENCIES_DIR=node_modules
 IGNORED_FILES=indent.log
 
-.PHONY: all install pdf chart sort-acronyms dist rerender rmout clean nuke tidy watch open
+.PHONY: all install pdf chart sort-acronyms dist release version rerender rmout clean nuke tidy watch open
 
 LATEXMK_OPTIONS=-output-directory=$(OUT_DIR) -bibtex -pdf -pdflatex=pdflatex
 
@@ -89,10 +89,12 @@ install:
 rerender: rmout pdf
 	@echo "> rerender done"
 
-release: $(DIST_PDF)
+release: $(DIST_PDF) version
+	@gh release create $(shell git tag | sort -r | head -n 1) $(DIST_PDF) --generate-notes
+
+version:
 	@yarn version --minor --message "chore: release"
 	@git push --follow-tags
-	@gh release create $(shell git tag | sort -r | head -n 1) $(DIST_PDF) --generate-notes
 
 dist: $(DIST_PDF) clean
 
