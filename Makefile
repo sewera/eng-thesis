@@ -109,6 +109,7 @@ clean-hooks:
 	@rm -f $(GIT_HOOKS_DIR)/*
 
 pre-commit: sort-bibliography
+	@git add -A
 	@echo "> pre-commit ok"
 
 rerender: rmout pdf
