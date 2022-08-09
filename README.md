@@ -42,6 +42,26 @@ with additional cleanup and refactoring.
 
 ## Troubleshooting
 
+Install `biber`:
+
+Arch Linux:
+
+```sh
+sudo pacman -S biber
+```
+
+Ubuntu:
+
+```sh
+sudo apt install biber
+```
+
+MacOS:
+
+```sh
+brew install biber
+```
+
 When `latexindent` fails, some perl modules may be missing.
 In my case, on Arch Linux, it was:
 

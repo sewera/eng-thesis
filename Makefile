@@ -31,9 +31,9 @@ ACRONYMS_SRC_FILE=$(META_SRC_DIR)/$(ACRONYMS_FILE)
 ACRONYMS_OUT_FILE=$(META_OUT_DIR)/$(ACRONYMS_SORTED_FILE)
 
 DEPENDENCIES_DIR=node_modules
-IGNORED_FILES=indent.log
+IGNORED_FILES=indent.log *.bib.blg
 
-.PHONY: all install pdf chart sort-acronyms dist release version rerender rmout clean nuke tidy watch open
+.PHONY: all install install-hooks pdf chart sort-acronyms sort-bibliography sb dist release version rerender rmout clean nuke tidy watch open
 
 LATEXMK_OPTIONS=-output-directory=$(OUT_DIR) -bibtex -pdf -pdflatex=pdflatex
 
@@ -80,11 +80,28 @@ $(META_OUT_DIR):
 	@echo "> $(META_OUT_DIR) created"
 
 
+# Sort bibliography
+
+sb: sort-bibliography
+
+sort-bibliography:
+	@biber --tool $(SRC_BIB) --output-file=$(SRC_BIB) > /dev/null
+
+
 # Project management
 
-install:
+LOCAL_HOOKS_DIR=.hooks
+GIT_HOOKS_DIR=$(shell git rev-parse --git-dir)/hooks
+
+install: install-hooks
 	@yarn
 	@echo "> dependencies installed"
+
+install-hooks:
+	@cp $(LOCAL_HOOKS_DIR)/pre-commit $(GIT_HOOKS_DIR)/pre-commit
+	@echo "> hooks installed"
+
+pre-commit: sort-bibliography
 
 rerender: rmout pdf
 	@echo "> rerender done"
