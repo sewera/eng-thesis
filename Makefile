@@ -33,7 +33,7 @@ ACRONYMS_OUT_FILE=$(META_OUT_DIR)/$(ACRONYMS_SORTED_FILE)
 DEPENDENCIES_DIR=node_modules
 IGNORED_FILES=indent.log *.bib.blg
 
-.PHONY: all install install-hooks pdf chart sort-acronyms sort-bibliography sb dist release version rerender rmout clean nuke tidy watch open
+.PHONY: all install install-hooks clean-hooks pdf chart sort-acronyms sort-bibliography sb dist release version rerender rmout clean nuke tidy watch open
 
 LATEXMK_OPTIONS=-output-directory=$(OUT_DIR) -bibtex -pdf -pdflatex=pdflatex
 
@@ -90,18 +90,26 @@ sort-bibliography:
 
 # Project management
 
-LOCAL_HOOKS_DIR=.hooks
-GIT_HOOKS_DIR=$(shell git rev-parse --git-dir)/hooks
-
 install: install-hooks
 	@yarn
 	@echo "> dependencies installed"
 
-install-hooks:
-	@cp $(LOCAL_HOOKS_DIR)/pre-commit $(GIT_HOOKS_DIR)/pre-commit
+HOOKS_DIR=$(shell git rev-parse --show-toplevel)/.hooks
+GIT_DIR=$(shell git rev-parse --absolute-git-dir)
+GIT_HOOKS_DIR=$(GIT_DIR)/hooks
+COMMIT_MSG_HOOK=commit-msg
+PRE_COMMIT_HOOK=pre-commit
+
+install-hooks: clean-hooks
+	@ln -s $(HOOKS_DIR)/$(COMMIT_MSG_HOOK) $(GIT_HOOKS_DIR)/$(COMMIT_MSG_HOOK)
+	@ln -s $(HOOKS_DIR)/$(PRE_COMMIT_HOOK) $(GIT_HOOKS_DIR)/$(PRE_COMMIT_HOOK)
 	@echo "> hooks installed"
 
+clean-hooks:
+	@rm -f $(GIT_HOOKS_DIR)/*
+
 pre-commit: sort-bibliography
+	@echo "> pre-commit ok"
 
 rerender: rmout pdf
 	@echo "> rerender done"

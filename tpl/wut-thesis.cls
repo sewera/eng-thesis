@@ -284,16 +284,16 @@
                 na~kierunku \@fieldofstudy \\
             \fi
             \ifnum \pdf@strcmp{\@lang}{en} = 0
-                in~the~field~of~study \@fieldofstudy \\
+                In~the~field~of~study: \textit{\@fieldofstudy}, \\
             \fi
             \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 w~specjalności \@specialization \\
             \fi
             \ifnum \pdf@strcmp{\@lang}{en} = 0
-                and~specialization \@specialization \\
+                and~specialization: \textit{\@specialization}. \\
             \fi
             \vspace{4em}
-            \large \@title \\
+            \large \textbf{\@title} \\
             \vspace{4em}
             \LARGE \@author \\
             \normalsize
@@ -301,14 +301,14 @@
                 Numer~albumu \@studentnumber \\
             \fi
             \ifnum \pdf@strcmp{\@lang}{en} = 0
-                student record book number \@studentnumber \\
+                Student record book number: \@studentnumber \\
             \fi
             \vspace{4em}
             \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 promotor \\
             \fi
             \ifnum \pdf@strcmp{\@lang}{en} = 0
-                thesis supervisor \\
+                Thesis supervisor \\
             \fi
             \@supervisor \\
             \vfill
