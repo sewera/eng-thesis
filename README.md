@@ -1,5 +1,17 @@
 # Engineering thesis
 
+## TODO
+
+- [ ] describe the `domain` package in core,
+- [ ] write about the decisions made in the project,
+- [ ] read e-book notes, and decide on the necessary ones,
+- [ ] describe the `components` dir in ui,
+- [ ] talk about future plans for this project,
+- [ ] talk about what I'd do differently
+- [ ] talk about the Docker 2-stage setup
+- [x] reason / background: what was the root cause,
+  - [ ] how did I come up with the idea.
+
 ## Generate
 
 ```sh
@@ -29,16 +41,6 @@ Based on [ArturB/WUT-Thesis](https://github.com/ArturB/WUT-Thesis),
 with additional cleanup and refactoring.
 
 ---
-
-## TODO
-
-- [ ] describe the `domain` package in core,
-- [ ] write about the decisions made in the project,
-- [ ] read e-book notes, and decide on the necessary notes,
-- [ ] describe the `components` dir in ui,
-- [ ] talk about future plans with this project,
-- [ ] reason / background: what was the root cause,
-  - [ ] how did I come up with the idea.
 
 ## Troubleshooting
 
