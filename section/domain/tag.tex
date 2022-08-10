@@ -1,0 +1,142 @@
+\subsection{Tag}\label{sec:tag}
+
+The Tag in the Notipie domain
+is a Notification broker
+between the Apps and the Users.
+
+A User can subscribe to the Tag,
+and an App can add itself to a Tag.
+When that happens,
+the forwarding of Notifications
+between said App and User is enabled.
+The Tag is actively listening
+on the Notification channel (\texttt{NotificationChan}),
+and every time a new Notification arrives,
+the \texttt{broadcast} method~(listing~\ref{lst:broadcast-method-in-tag})
+is executed.
+The \texttt{broadcast} method in turn sends that Notification
+to every User subscribed to this Tag.
+The flow is presented in figure~\ref{fig:notification-flowchart}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm,keepaspectratio]{chart/out/notification-flowchart.pdf}
+  \caption{Notification flow in \texttt{domain}}
+  \label{fig:notification-flowchart}
+\end{figure}
+
+\subsubsection{Technicalities}\label{sec:tag-technicalities}
+
+There is an obvious problem with this approach.
+When a User is subscribed to two Tags,
+and one App has those two Tags assigned,
+then that User can get the same Notification twice
+(figure~\ref{fig:duplicated-notification}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm,keepaspectratio]{chart/out/duplicated-notification.pdf}
+  \caption{Duplicated Notification flow}
+  \label{fig:duplicated-notification}
+\end{figure}
+
+There are two solutions I could think of.
+
+\paragraph*{Solution 1}\label{par:duplication-solution-1}
+
+This solution assumes the following:
+
+There is a new component in the domain, Router.
+It is a centralized component
+that knows which App is connected to which Tag,
+and which User is subscribed to those Tags
+(figure~\ref{fig:notification-router}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15.5cm,keepaspectratio]{chart/out/notification-router.pdf}
+  \caption{Notification Router}
+  \label{fig:notification-router}
+\end{figure}
+
+With this approach,
+the User component is simpler,
+as it does not need any deduplication logic.
+However, there is a whole new component
+in the domain, which introduces complexity.
+Furthermore, the Router has to be
+a Singleton~\cite[pp.~127-134]{gamma_design_1994}
+in order to process all the Notifications.
+
+It would create a bottleneck,
+as the Router would need to process every new Notification
+that goes through the application.
+
+The Router needs a table referencing
+Tags and Users subscribed to them.
+Provided that there are $n$ Tags,
+and every Tag has $m$ Users subscribed to it,
+the lookup complexity of such table
+would be $O(n \cdot m)$,
+because the table would need to be
+scanned in its entirety to determine
+all the Users that need to get the Notification.
+It could be optimized into $O(m \cdot \log n)$
+if the Tag list is sorted,
+but the sorting would introduce
+more complexity in the Router.
+
+The time complexity was not the main concern, though.
+The main problem would be
+the additional code complexity,
+compared to the second solution.
+
+\paragraph*{Solution 2}\label{par:duplication-solution-2}
+
+This solution assumes the following:
+
+The deduplication logic is inside the User,
+every Notification is sent by a Tag to a User
+if the User is subscribed to the Tag.
+The User decides if it keeps the Notification
+or drops it as a duplicate
+(figure~\ref{fig:notification-user-dedupe}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15.5cm,keepaspectratio]{chart/out/notification-user-dedupe.pdf}
+  \caption{Notification Deduplication in User}
+  \label{fig:notification-user-dedupe}
+\end{figure}
+
+With this approach,
+the User component is more complex,
+but the overall domain structure is simpler.
+The Users are distributed across the application,
+and only need to deduplicate their own Notifications.
+
+The solution is parallelized by nature,
+so there is no bottleneck
+like with the previous example.
+
+The solution is also more scalable.
+As the application grows,
+and more Notifications go through it,
+we can start to observe race conditions.
+In result,
+duplicated messages from different Tags
+will start to appear.
+
+Then, we can simply extend the length of
+previous Notification IDs that we check.
+In the worst case,
+we would have to keep as many previous
+Notification IDs,
+as there are Tags the User is subscribed to.
+
+The code complexity is also superior
+to the previous approach.
+Dropping or saving a Notification is a trivial task,
+with a simple algorithm:
+when the current Notification ID is found in the
+already received IDs, drop it; otherwise, save it.
