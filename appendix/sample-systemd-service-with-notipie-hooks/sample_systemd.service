@@ -1,0 +1,13 @@
+[Unit]
+Description=Sample Service
+
+[Service]
+Type=simple
+Restart=always
+User=sample
+ExecStart=/home/sample/service -addr 0.0.0.0:5150
+ExecStartPost=/usr/bin/nnp -c /home/sample/nnp.config.yaml -f /home/sample/nnp.notification.yaml -t 'Sample Service started'
+ExecStopPost=/usr/bin/nnp -c /home/sample/nnp.config.yaml -f /home/sample/nnp.notification.yaml -t 'Sample Service stopped'
+
+[Install]
+WantedBy=multi-user.target

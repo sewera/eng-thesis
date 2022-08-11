@@ -2,13 +2,13 @@
 
 ## TODO
 
-- [ ] describe the `domain` package in core,
-- [ ] write about the decisions made in the project,
+- [x] describe the `domain` package in core,
+- [x] (partial) write about the decisions made in the project,
 - [ ] read e-book notes, and decide on the necessary ones,
 - [ ] describe the `components` dir in ui,
 - [ ] talk about future plans for this project,
-- [ ] talk about what I'd do differently
-- [ ] talk about the Docker 2-stage setup
+- [x] (partial) talk about what I'd do differently
+- [x] (partial) talk about the Docker 2-stage setup
 - [x] reason / background: what was the root cause,
   - [ ] how did I come up with the idea.
 

@@ -1,0 +1,17 @@
+\subsection{App}\label{sec:app}
+
+The App is able to send Notifications
+in the domain.
+Conceptually,
+there is one instance of an App
+per each real application
+able to produce notifications.
+
+For instance,
+when I set up a health checking script
+that produces a notification each time
+a Systemd service is started,
+like the one in listing~\ref{lst:sample-systemd-service-definition},
+when any of the hooks fire,
+and the notification arrives to the backend,
+a new App is created in the domain.

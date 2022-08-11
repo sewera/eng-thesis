@@ -1,0 +1,4 @@
+# /home/sample/nnp.config.yaml
+endpointConfig:
+  address: notipie.sewera.dev
+  port: 8080

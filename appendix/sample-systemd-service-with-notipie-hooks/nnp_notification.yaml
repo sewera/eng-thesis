@@ -1,0 +1,5 @@
+# /home/sample/nnp.notification.yaml
+appName: Sample Service
+body: Sample Service running on Sample Server
+extUri: sample.sewera.dev/health
+apiKey: sample_api_key
