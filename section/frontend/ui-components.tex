@@ -1,0 +1,64 @@
+\subsection{UI components}\label{sec:ui-components}
+
+Using components enabled me to split my UI
+into small, reusable components,
+eliminating code duplication,
+and helping with maintaining the consistent look.
+I wanted to choose the right library
+for this task,
+so that the development would be quick,
+and I would have plenty of tools
+that would help me achieve
+good architecture for the frontend.
+
+\subsubsection{UI component library}\label{sec:ui-component-library}
+
+When choosing the library for the UI components, I considered:
+
+\begin{itemize}
+  \item
+        React~\cite{oshannessy_react_2022},
+  \item
+        Vue.js~\cite{you_vuejs_2022}, and
+  \item
+        Angular~\cite{kalpakas_angular_2022}.
+\end{itemize}
+
+All those libraries are very popular,
+so I chose React,
+because I had the most experience with it in my professional work.
+
+\subsubsection{The component directory}\label{sec:the-component-directory}
+
+All of the frontend components
+are located in the component directory~\cite{sewera_notipie_2022-3}.
+The directories are divided by category.
+There are currently two categories,
+\emph{canvas}, and
+\emph{notification}.
+
+Canvas category includes
+an \emph{AppCanvas} component,
+responsible for displaying
+a background in the right color,
+and controlling the light or dark mode setting.
+
+Notification category includes
+a notification card\footnote{
+  The design of the card
+  is explained in detail
+  in section~\ref{sec:final-design}.
+}, a notification container,
+which contains all the notifications
+from the same App\footnote{
+  The concept of an App is described
+  in section~\ref{sec:app}.
+}, and a notification board,
+containing all the notifications
+presented in the UI.
+
+\subsubsection{Testing}\label{sec:ui-testing}
+
+
+
+\subsubsection{Storybook}\label{sec:storybook}
