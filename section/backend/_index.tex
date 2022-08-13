@@ -1,6 +1,22 @@
 \section{Backend}\label{sec:backend}
 
-The backend's code is in the \texttt{core} directory~\cite{sewera_notipie_2022}.
+The backend of Notipie
+needed to be both performant,
+easy to deploy,
+and well-tested.
+I strived to make use of the best practices
+in the field of microservices,
+maintain great quality,
+and ensure sufficient performance.
+I named it \emph{core},
+because there can be different UIs,
+or notification producers,
+but the entire application's core
+is specifically the backend implementation.
+
+The backend code
+is in the
+\texttt{core} directory~\cite{sewera_notipie_2022}.
 
 \input{section/backend/core-project-architecture.tex}
 \input{section/backend/go-in-core.tex}

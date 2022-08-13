@@ -1,0 +1,31 @@
+\subsection{Go library}\label{sec:producer-go-library}
+
+In order to make the notification producer
+accessible to developers,
+I created a simple Go library
+for easy notification creation and sending.
+The library supports the basic operations
+an App\footnote{
+  The App is defined in section~\ref{sec:app}.
+} can perform.
+
+Those operations include pinging the backend if it is up
+and pushing the notification to the backend.
+
+The first operation is useful when setting up
+a producer that can push to different backends,
+depending on which one is up.
+For example,
+two backends are running
+in two different VPNs.
+Depending on which one of them
+the computer producing notifications
+is connected to,
+it first pings those two,
+and decides on which one to send the notification to.
+This operation can be performed
+when starting the producer up,
+without the need to send a real notification.
+
+Pushing the notification to the backend
+also includes getting the App ID from the backend.

@@ -1,0 +1,21 @@
+\subsection{Format}\label{sec:protocol-format}
+
+When I was choosing the right format
+for the notifications,
+I took into consideration two options:
+binary and plain text.
+I chose plain text,
+because portability was very important to me.
+I wanted to have the protocol able to run
+between different processor architectures,
+and not think about endianness.
+
+Then, I wanted to use a format
+that was popular for network data exchange.
+The candidates were XML and JSON.
+I really did not want to go with XML,
+as the parsing is not that easy,
+readability is very poor,
+and the popularity is dropping
+in favor of JSON.
+So I chose JSON // TODO: finish
