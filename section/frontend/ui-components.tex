@@ -44,11 +44,8 @@ a background in the right color,
 and controlling the light or dark mode setting.
 
 Notification category includes
-a notification card\footnote{
-  The design of the card
-  is explained in detail
-  in section~\ref{sec:final-design}.
-}, a notification container,
+a notification card,
+a notification container,
 which contains all the notifications
 from the same App\footnote{
   The concept of an App is described
@@ -57,8 +54,76 @@ from the same App\footnote{
 containing all the notifications
 presented in the UI.
 
+\subsubsection{Styling}\label{sec:ui-styling}
+
+In addition to the correct behavior of the UI,
+I needed to bring my design of the card\footnote{
+  The design of the card
+  is explained in detail
+  in section~\ref{sec:final-design}.
+} and other components
+into reality.
+I had some experience with Bootstrap 4~\cite{otto_bootstrap_2018},
+but I did not like the look of it
+and customizability was complicated.
+I also had experience with plain CSS,
+but I did not want additional hassle
+of maintaining both JS and CSS.
+
+I decided I will use a CSS utility library,
+which will remove additional effort
+of manual CSS management,
+as well as provide me with the necessary tools
+to implement my own, custom design.
+
+Tailwind CSS~\cite{wathan_tailwind_2022}
+was my first and only choice.
+Not only is it very popular,
+but also the documentation is excellent,
+there are many tutorials on YouTube,
+and it was written by the authors
+of \citetitle{wathan_refactoring_2018}~\cite{wathan_refactoring_2018},
+one of the books that influenced
+my style of design overall,
+mentioned also in section~\ref{sec:inspirations}.
+
 \subsubsection{Testing}\label{sec:ui-testing}
 
+UI visual testing tend to be very expensive,
+both in terms of time and money.
+I used Applitools Eyes~\cite{applitools_applitools_2022}
+in my professional work,
+and it was both slow,
+and the tests were flaky.
+I also did not want to spend any money
+on the application development.
 
+I used Jest~\cite{bekkhus_jest_2022} for unit tests,
+and I was very content with it.
+I found out that it has
+a \emph{snapshot testing} function~\cite{bekkhus_snapshot_2022}.
+In addition to a CSS utility library
+like Tailwind CSS,
+I could be fairly sure
+that if all HTML classes stayed the same,
+the look of the entire application
+will stay the same.
+
+The snapshot tests were very quick,
+easy to review and debug,
+whenever there was some unwanted change.
+Coupled with Tailwind CSS,
+they provided a very powerful tool
+for regression testing.
 
 \subsubsection{Storybook}\label{sec:storybook}
+
+Another tool that helped with
+component creation in isolation
+was Storybook~\cite{shilman_storybook_2022}.
+The isolation of components
+helped with testing,
+improved portability and reusability,
+and helped me gather all the properties
+of each component into an interactive
+documentation.
