@@ -37,6 +37,7 @@
     "endianness",
     "goroutines",
     "Grafana",
+    "Hashable",
     "IFTTT",
     "Intelli",
     "latexindent",

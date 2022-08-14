@@ -13,9 +13,31 @@ and not think about endianness.
 Then, I wanted to use a format
 that was popular for network data exchange.
 The candidates were XML and JSON.
-I really did not want to go with XML,
+I did not want to go with XML,
 as the parsing is not that easy,
 readability is very poor,
 and the popularity is dropping
 in favor of JSON.
-So I chose JSON // TODO: finish
+
+I chose JSON,
+because of its support by TypeScript and Go,
+either as a language feature,
+or in a standard library.
+I also chose JSON for the push response
+containing App ID
+for consistency.
+
+I decided to support both JSON and YAML
+in the configuration files for the producer,
+including the notification template\footnote{
+  More on the configuration files and templates
+  for the producer
+  in section\ref{sec:producer-configuration}.
+}.
+YAML is favorable in configuration files,
+so I wanted to provide a uniform
+format for a configuration file
+and a template.
+YAML, however,
+does not go through the network
+anywhere in Notipie.
