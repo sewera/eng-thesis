@@ -1,0 +1,82 @@
+\subsection{E2E Testing}\label{sec:e2e-testing}
+
+There are two ways of E2E testing,
+manual and automatic.
+I chose the former,
+because writing automatic tests
+require a complex setup,
+a new framework like Selenium~\cite{steward_selenium_2022},
+and a whole other project to maintain.
+E2E test automation is of substantial advantage
+for bigger projects, however,
+my project is well tested with
+unit tests,
+integration tests, and
+snapshot tests\footnote{
+  Snapshot testing is a frontend-specific term
+  explained in section~\ref{sec:ui-testing}.
+}.
+All of those automatic tests
+raised my confidence in the project high enough
+that I did not have to manually test
+the application very often.
+
+Despite that,
+I created two manual testing utilities,
+which helped me with development
+of frontend and backend components independently,
+a test notifications server
+and a test WebSocket client.
+I chose to write both of them in TypeScript,
+with as little code as possible;
+first not to introduce another language
+to the project, like Python,
+and second to reduce the overhead
+of a statically-typed language
+for such a simple, non-critical task.
+
+\subsubsection{Test Notifications Server}\label{sec:test-notifications-server}
+
+The test notifications server
+is a very simple server that sends
+randomly-generated notifications to the UI.
+It can send an initial batch of notifications
+when the UI calls the endpoint synchronously,
+but it also can accept a WS connection
+and send one notification at a time asynchronously,
+on a press of the \textit{Enter} key.
+
+The server itself is written
+using Express~\cite{holowaychuck_express_2022},
+a lightweight HTTP framework.
+The random notification generation
+is done with a help of Faker~\cite{marak_faker_2022},
+a JS library for generating fake,
+but realistically-looking data.
+
+I used it for checking if the UI
+is wired up properly,
+when I did not have
+the notification producer
+implementation in place.
+
+\subsubsection{Test WebSocket Client}\label{sec:test-ws-client}
+
+The test WS client
+is a simple client that connects
+to a hard-coded URL on start,
+sets up the WS connection,
+and logs everything that is pushed to it.
+It also closes the connection before stopping.
+
+For the implementation,
+I used the built-in standard WS implementation
+in Node~\cite{trott_node_2022}.
+
+I used this test client
+to check if the backend properly
+sets up the connection,
+creates the client object,
+sends the data,
+and destroys the object properly
+after the client disconnects.

@@ -36,7 +36,14 @@ representing the levels of abstraction:
             WebSockets, and persistence,
       \item
             \texttt{infra} -- configures the application
-            and sets up the context for DI,
-      \item
-            \texttt{model} -- defines network data models.
+            and sets up the context for DI.
 \end{itemize}
+
+There also was a \texttt{model} package
+in the \texttt{internal} directory,
+but I moved it to an exportable \texttt{pkg} directory,
+to reuse it in the notification producer.
+
+\subsubsection{The Grid}\label{sec:the-grid}
+
+TODO: describe the grid
