@@ -1,3 +1,49 @@
 \subsection{Command line utility}\label{sec:command-line-utility}
 
-\subsubsection{Configuration}\label{sec:producer-configuration}
+Not everyone who could benefit
+from my application
+needs to have a good understanding
+of Go development.
+That is why I also prepared
+a command line utility
+that is compatible with the most popular shells:
+Unix-like shells and Powershell.
+
+Its feature set is very similar
+to the one mentioned in the previous section,
+but it also includes configuration
+and notification templates
+for convenience.
+
+\subsubsection{Configuration and notification templates}\label{sec:configuration-and-notification-templates}
+
+This version of a producer can be configured
+either through the command line arguments,
+or the configuration files,
+but the command line arguments
+always take precedence.
+
+The configuration files themselves
+can be stored in JSON or YAML format.
+I chose those two,
+because they are very popular formats
+for this use case.
+Those formats can also be used
+for specifying a notification template.
+
+The configuration consists of
+the address and port of the backend,
+which are set by user.
+Also, when the producer sends its first notification
+and gets back the App ID,
+the producer appends it to the configuration file,
+so that it is present in every consecutive push.
+
+The notification template can be any
+subset of an App notification model
+defined in section~\ref{sec:protocol}.
+Everything specified in this template
+can be overwritten with CLI arguments.
+The only requirement for a valid request
+is to have an App name and title set.
+The timestamp is set automatically for us.
