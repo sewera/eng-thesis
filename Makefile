@@ -116,7 +116,7 @@ rerender: rmout pdf
 	@echo "> rerender done"
 
 release: $(DIST_PDF) version
-	@gh release create $(shell git tag | sort -r | head -n 1) $(DIST_PDF) --generate-notes
+	@gh release create $(shell git tag --sort=-v:refname | head -n 1) $(DIST_PDF) --generate-notes
 
 version:
 	@yarn version --minor --message "chore: release"
