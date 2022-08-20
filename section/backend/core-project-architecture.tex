@@ -29,8 +29,7 @@ representing the levels of abstraction:
       \item
             \texttt{grid} -- lower level of abstraction than domain,
             defines proxies that convert network models into domain models,
-            creates and organizes domain objects into a grid,
-            in which those objects can communicate,
+            and connects those proxies with the domain components,
       \item
             \texttt{impl} -- implements network endpoints,
             WebSockets, and persistence,
@@ -44,6 +43,35 @@ in the \texttt{internal} directory,
 but I moved it to an exportable \texttt{pkg} directory,
 to reuse it in the notification producer.
 
-\subsubsection{The Grid}\label{sec:the-grid}
+\subsubsection{Grid}\label{sec:grid}
 
-TODO: describe the grid
+The grid is an application layer
+that connects implementations of
+the endpoints, WebSockets, and persistence
+with the domain objects.
+I decided to define that name in the UL
+to mean this exact intermediate layer.
+The name itself was inspired by a power grid
+which connects components
+from power generation
+to appliances.
+
+The implementation is based on the proxies
+for domain Apps and Users\footnote{
+      The App and the User are defined in
+      sections~\ref{sec:app}~and~\ref{sec:user}
+      respectively.
+}.
+Those proxies convert the applicable network models
+and perform intermediate procedures
+that do not concern the domain,
+like Notification ID generation.
+
+This layer is especially important
+to keep the domain clean and concise
+and to enable easy replacing\footnote{
+      The differences between writing code
+      for reuse and replacement are described in detail
+      in section~\ref{sec:code-quality}.
+}
+of concrete implementations.

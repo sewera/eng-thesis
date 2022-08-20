@@ -1,0 +1,44 @@
+\subsection{Code quality}\label{sec:code-quality}
+
+Apart from the quality of the product,
+or rather in concert with it
+comes the code quality.
+I spent a fair amount of time trying
+to perfect maintainability,
+scalability,
+and reusability of the code.
+One big thing that helped me with this task
+was test-first development,
+explained many times by Kent Beck or
+Robert C. Martin~\cite{beck_extreme_2004,beck_test-driven_2002,martin_clean_2011}.
+I cannot stress enough how big
+of a change in development pace it brought.
+Another thing was refactoring,
+explained in detail,
+with a handy glossary,
+by Martin Fowler~\cite{fowler_refactoring_2019}.
+Together with XP~\cite{beck_extreme_2004},
+it ensured me that designing the architecture right
+the first time rarely works.
+
+\citetitle{millett_patterns_2015}~\cite{millett_patterns_2015}
+and \citetitle{evans_domain-driven_2003}~\cite{evans_domain-driven_2003}
+showed me a different perspective
+of not getting something right the first time,
+but this time it was specifically the domain.
+For instance,
+I struggled a lot with the Tag definition,
+name, and set of responsibilities.
+The informal discussions with my friends
+helped me gain additional insight into the domain
+from a different point of view.
+
+Those two books also broke down the intricacies
+of writing the code for reuse or replacement.
+I could, for example,
+migrate pretty easily
+from one state management implementation to another,
+as described in section~\ref{sec:state-management-in-ui}.
+I can also easily swap
+the persistence implementation in the backend,
+from in-memory to a proper database.
