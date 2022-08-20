@@ -1,5 +1,42 @@
 \subsection{Monorepo}\label{sec:monorepo}
 
-TODO: write about how monorepo improved
-both integration between frontend and backend,
-and helped deduplicate network models in go libraries
+Monorepo is just a single repository
+for the whole solution.
+All the components are in one repository,
+including frontend,
+backend,
+producer, and
+testing tools.
+It greatly improved and simplified
+the integration between frontend, backend,
+and gave way for scripts
+bringing the whole stack up.
+The unit and integration tests run for all
+components simultaneously,
+so that if something in the product breaks,
+it is immediately visible.
+I can take full advantage of the
+``stop the presses'' CI pipeline failure approach,
+explained in \citetitle{martin_clean_2011}~\cite{martin_clean_2011}.
+
+Not only that,
+but it also simplified sharing
+the common protocol models (section~\ref{sec:protocol})
+for the Go projects, i.e. backend and producer,
+without the need for additional procedures
+for releasing the libraries with models.
+
+Such monorepos provide many advantages
+when keeping the whole product in one place.
+Refactoring,
+even a full-stack-wide
+is very easy in such a repository,
+and can be brought down to a single PR.
+This in turn decreases the lag between
+opening a PR and merging it,
+compared to many PRs in many different repositories.
+It is especially important
+to optimize the PR times in open-source,
+because here we cannot avoid them,
+in contrast to the XP teams~\cite{beck_extreme_2004},
+in which the only contributors are its members.
