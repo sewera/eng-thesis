@@ -2,6 +2,40 @@
 
 When developing the application,
 it is very important to automate the build process.
-For this task, I chose Make.
+For this task,
+I chose \texttt{package.json} scripts
+for TypeScript projects,
+and Make for everything else.
 
-TODO: write about Make and package.json scripts
+It was very important for me
+to have this project ready for development
+after running only one script.
+That is why I prepared a Make recipe
+which guides a user on how to install
+Go, Node.js, and Yarn,
+which installation could not be automated,
+and installs the prerequisites for all components.
+It also copies example configuration files
+to the necessary places,
+and installs Git hooks,
+so that a full local development setup
+is configured.
+
+I also provided many recipes
+for configuration files management,
+building binaries,
+Docker images creation,
+quick application running with hot reload,
+testing,
+linting, and
+code formatting.
+
+I chose to use \texttt{package.json} scripts
+for TS projects,
+because they are widely used
+across the frontend developers,
+and there is a better chance
+that when someone wants to contribute
+only to the frontend project,
+they will be more familiar with those scripts
+than with Make.
