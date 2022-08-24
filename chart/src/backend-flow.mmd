@@ -1,0 +1,19 @@
+flowchart TB
+
+Producer -- AppNotification --> EP
+
+subgraph NotipieCore["fa:fa-cubes —————— Notipie Core."]
+  subgraph Impl["fa:fa-cube ——— Impl."]
+    EP["Endpoint (/push)"] -- AppNotification --> AppProxy
+    subgraph Grid["fa:fa-cube ——— Grid."]
+      AppProxy -- Notification --> App
+      subgraph Domain["fa:fa-cube ——— Domain."]
+        App -- Notification --> Tag
+        Tag -- Notification --> User
+      end
+      User -- Notification --> UserProxy
+    end
+    UserProxy -- ClientNotification --> WSB[WebSocketBroadcaster]
+  end
+end
+WSB -- ClientNotification --> Frontend

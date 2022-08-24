@@ -22,7 +22,6 @@ on using RxJS for all real-time data fetching,
 enabling the separation of concerns in the code,
 and decoupling the state management implementation
 from the networking implementation.
-
 When searching for the optimal solution for pushing the data to the UI,
 I came across two major solutions:
 
@@ -43,10 +42,15 @@ I came across two major solutions:
             so it is very problematic to use with strict TypeScript.
 \end{itemize}
 
-Both thunks and sagas did not provide the separation of concerns
+Unfortunately,
+Thunks and sagas did not provide the separation of concerns
 I wanted to achieve.
 Fetching or acting upon pushed data
 is a different concern than storing it.
+Both had a strict dependency on Redux
+store implementation,
+so I discarded them as an unacceptable risk
+of relying on libraries I could not change.
 
 As a user,
 I should not have to dispatch an action on a store
@@ -54,7 +58,6 @@ when I want to fetch data.
 Of course, the data can be immediately stored after fetching,
 but this behavior should be injected later,
 so that there is no store implementation lock-in.
-
 This separation of concerns enabled me to
 migrate from Redux to Zustand as my \textit{store} implementation,
 as described in the next section.

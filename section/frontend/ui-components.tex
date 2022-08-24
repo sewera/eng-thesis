@@ -13,6 +13,14 @@ good architecture for the frontend.
 
 \subsubsection{UI component library}\label{sec:ui-component-library}
 
+A UI component library is a JavaScript or TypeScript library
+enabling a programmer to reduce duplication
+in the frontend codebase.
+It provides a way to split the frontend code into components,
+which can be parametrized, reused, and composed into an entire application,
+and to declaratively describe
+the appearance and behavior of those components
+with a help of functions or classes.
 When choosing the library for the UI components, I considered:
 
 \begin{itemize}
@@ -75,7 +83,6 @@ which will remove additional effort
 of manual CSS management,
 as well as provide me with the necessary tools
 to implement my own, custom design.
-
 Tailwind CSS~\cite{wathan_tailwind_2022}
 was my first and only choice.
 Not only is it very popular,
@@ -127,3 +134,24 @@ improved portability and reusability,
 and helped me gather all the properties
 of each component into an interactive
 documentation.
+It provided a convenient component library browser,
+which worked both in dark and light mode.
+The Storybook for Notipie is presented
+for dark and light modes in
+figures~\ref{fig:storybook-dark}
+and~\ref{fig:storybook-light}
+respectively.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth,keepaspectratio]{img/storybook.jpg}
+  \caption{Storybook for Notipie: Dark mode view}
+  \label{fig:storybook-dark}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth,keepaspectratio]{img/storybook_light.jpg}
+  \caption{Storybook for Notipie: Light mode view}
+  \label{fig:storybook-light}
+\end{figure}

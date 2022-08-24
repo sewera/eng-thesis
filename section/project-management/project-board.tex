@@ -1,34 +1,51 @@
 \subsection{Project board}\label{sec:project-board}
 
 One of the great tools that helped with the project management
-was the new Github Project board,
-which is currently in beta~\cite{github_inc_github_2022}.
+was the new Github Projects app,
+depicted in figure~\ref{fig:github-projects-kanban},
+which was in beta stage
+when I started to use it~\cite{github_inc_github_2022}.
 The Kanban board~\cite{goddard_kanban_2022} consists of four sections (columns):
 
 \begin{itemize}
       \item
-            \textit{Todo},
+            \textit{Todo} -- consists of all the issues
+            connected to this project
+            that are planned to be worked on in the future,
       \item
-            \textit{Open},
+            \textit{Open} -- consists of issues
+            that need to be worked on next.
+            Those are usually one to three issues
+            that need to be done in a certain order,
       \item
-            \textit{In Progress}, and
+            \textit{In Progress} -- contains issues
+            that are currently being worked on.
+            There is usually only one issue in this column,
       \item
-            \textit{Done}.
+            \textit{Done} -- consists of all the finished issues,
+            as well as the issues that were decided to be unnecessary.
+            In that case, the issues are marked with a \texttt{wontfix} label.
 \end{itemize}
 
-Section \textit{Todo} consists of all the issues
-connected to this project
-that are planned to be worked on in the future.
+Another convenient set of tools in the same Github Projects app
+were the table views.
+I configured one of the table views to present a Backlog,
+a list of issues in the whole project,
+which I could manually sort by
+issue priority and urgency,
+so as to enable quick progress overview.
+The Backlog view is presented in figure~\ref{fig:github-projects-backlog}.
 
-Section \textit{Open} consists of issues
-that need to be worked on next.
-Those are usually one to three issues
-that need to be done in a certain order.
+\begin{figure}[h]
+      \centering
+      \includegraphics[width=\linewidth,keepaspectratio]{img/kanban_board.jpg}
+      \caption{Github Projects: Kanban board view}
+      \label{fig:github-projects-kanban}
+\end{figure}
 
-Section \textit{In Progress} contains issues
-that are currently being worked on.
-There is usually only one issue in this column.
-
-Section \textit{Done} consists of all the finished issues,
-as well as the issues that were decided to be unnecessary.
-In that case, the issues are marked with a \texttt{wontfix} label.
+\begin{figure}[h]
+      \centering
+      \includegraphics[width=\linewidth,keepaspectratio]{img/backlog.jpg}
+      \caption{Github Projects: Backlog view}
+      \label{fig:github-projects-backlog}
+\end{figure}

@@ -1,6 +1,18 @@
 \subsection{Core project architecture}\label{sec:core-project-architecture}
 
-The project on the top-level is structured over 4 directories:
+An overview of the backend architecture
+from the asynchronous notification flow perspective
+is presented in figure~\ref{fig:high-level-backend-flow}.
+The project on the top-level is structured over 4 directories,
+named according to
+the \citetitle{quest_standard_2022}~\cite{quest_standard_2022}:
+
+\begin{figure}[h]
+      \centering
+      \includegraphics[width=6.5cm,keepaspectratio]{chart/out/backend-flow.pdf}
+      \caption{Backend architecture for asynchronous notification flow}
+      \label{fig:high-level-backend-flow}
+\end{figure}
 
 \begin{itemize}
       \item
@@ -12,9 +24,6 @@ The project on the top-level is structured over 4 directories:
       \item
             \texttt{test} -- black box integration test code
 \end{itemize}
-
-The directory names are taken
-from the \citetitle{quest_standard_2022}~\cite{quest_standard_2022}.
 
 \subsubsection{The internal directory}\label{sec:the-internal-directory}
 
