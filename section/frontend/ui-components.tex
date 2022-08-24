@@ -44,13 +44,11 @@ The directories are divided by category.
 There are currently two categories,
 \textit{canvas}, and
 \textit{notification}.
-
 Canvas category includes
 an \texttt{AppCanvas} component,
 responsible for displaying
 a background in the right color,
 and controlling the light or dark mode setting.
-
 Notification category includes
 a notification card,
 a notification container,
@@ -71,7 +69,7 @@ I needed to bring my design of the card\footnote{
   in section~\ref{sec:final-design}.
 } and other components
 into reality.
-I had some experience with Bootstrap 4~\cite{otto_bootstrap_2018},
+I had some experience with Bootstrap~4~\cite{otto_bootstrap_2018},
 but I did not like the look of it
 and customizability was complicated.
 I also had experience with plain CSS,
@@ -83,7 +81,7 @@ which will remove additional effort
 of manual CSS management,
 as well as provide me with the necessary tools
 to implement my own, custom design.
-Tailwind CSS~\cite{wathan_tailwind_2022}
+Tailwind~CSS~\cite{wathan_tailwind_2022}
 was my first and only choice.
 Not only is it very popular,
 but also the documentation is excellent,
@@ -110,7 +108,7 @@ and I was very content with it.
 I found out that it has
 a \textit{snapshot testing} capability~\cite{bekkhus_snapshot_2022}.
 In addition to a CSS utility library
-like Tailwind CSS,
+like Tailwind~CSS,
 I could be fairly sure
 that if all HTML classes stayed the same,
 the look of the entire application
@@ -119,7 +117,7 @@ will stay the same.
 The snapshot tests were very quick,
 easy to review and debug,
 whenever there was some unwanted change.
-Coupled with Tailwind CSS,
+Coupled with Tailwind~CSS,
 they provided a very powerful tool
 for regression testing.
 

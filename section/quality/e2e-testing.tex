@@ -53,12 +53,15 @@ The random notification generation
 is done with a help of Faker~\cite{marak_faker_2022},
 a JS library for generating fake,
 but realistically-looking data.
-
 I used it for checking if the UI
 is wired up properly,
 when I did not have
 the notification producer
 implementation in place.
+An example of randomly-generated notifications
+created by this test server is illustrated
+in section~\ref{sec:frontend},
+figure~\ref{fig:notipie-ui-dark}.
 
 \subsubsection{Test WebSocket Client}\label{sec:test-ws-client}
 
@@ -68,7 +71,6 @@ to a hard-coded URL on start,
 sets up the WS connection,
 and logs everything that is pushed to it.
 It also closes the connection before stopping.
-
 For the implementation,
 I used the built-in standard WS implementation
 in Node~\cite{trott_node_2022}.
@@ -80,3 +82,8 @@ creates the client object,
 sends the data,
 and destroys the object properly
 after the client disconnects.
+It was mainly useful for the Notipie backend,
+but I also used it to debug the backend
+of Reactive Raven\footnote{
+  Reactive Raven is describe in more detail in section~\ref{sec:reactive-raven}.
+}.

@@ -6,18 +6,26 @@ with hot module reloading,
 easy to use setup scripts,
 customizable development server,
 and short bundle times.
+One library I immediately ruled out
+because of lack of those modern features
+was Webpack~\cite{koppers_webpack_2022}.
+It is a tool with a lot of legacy,
+which brought JS bundling to the main stream.
+However, today its legacy gets in the way
+of a clean API and good developer experience,
+compared to more modern tools.
 
 \subsubsection{Snowpack and Vite}\label{sec:snowpack-and-vite}
 
 I started with Snowpack~\cite{schott_snowpack_2021}
 and used it until I decided to move to Vite~\cite{you_vite_2022}
 in commit \texttt{c11bc35}\footfullcite{sewera_choreui_2021}.
-
 Snowpack offered both hot module reloading and short bundle times.
-However, there were some minor problems from time to time,
+However, there were some minor glitches and bugs from time to time,
 the project had a slow development,
-and the alternative,
-Vite did not seem to have those problems.
+small user base,
+and the alternative, Vite,
+did not seem to have those problems.
 
 I tried Vite in my other project,
 Reactive Raven~\cite{sewera_reactive_2022},
@@ -27,7 +35,6 @@ TypeScript,
 Tailwind CSS,
 and other tools I used was seamless,
 therefore I decided to migrate to it in Notipie as well.
-
 On April 20th, 2022,
 Snowpack's maintainer stated in the project's Readme document
 (commit \texttt{45456aa}\footfullcite{schott_readmemd_2022})

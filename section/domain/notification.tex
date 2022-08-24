@@ -4,7 +4,6 @@ The core of the application.
 This is the structure
 acting as a protocol of communication
 between all components in the application domain.
-
 It consists of the text fields,
 like title, optional subtitle, optional body,
 URIs for marking the Notification read,
@@ -14,6 +13,9 @@ but also an App\footnote{
 
 For the distributed nature of the components,
 the Notification is always passed by value.
+Having an immutable copy of the Notification object
+in every place ensures
+no unexpected states in the application.
 It is easily achieved
 using the features of
 the Go language\footnote{

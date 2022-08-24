@@ -3,6 +3,11 @@
 The Tag in the Notipie domain
 is a Notification broker
 between the Apps and the Users.
+It stores which Apps are attached to it
+and which Users are subscribed to it.
+It also ensures thread-safety
+for attaching and detaching of Apps,
+as well as subscribing and unsubscribing of Users.
 
 At first,
 I wanted it to be named a Room,
@@ -19,6 +24,8 @@ contradicts the existing understanding of chat rooms.
 
 A User can subscribe to the Tag,
 and an App can add itself to a Tag.
+The thread-safety of those operations
+are ensured by mutexes.
 When that happens,
 the forwarding of Notifications
 between said App and User is enabled.
@@ -45,6 +52,7 @@ When a User is subscribed to two Tags,
 and one App has those two Tags assigned,
 then that User can get the same Notification twice
 (figure~\ref{fig:duplicated-notification}).
+There are two solutions I could think of.
 
 \begin{figure}[h]
   \centering
@@ -52,8 +60,6 @@ then that User can get the same Notification twice
   \caption{Duplicated Notification flow}
   \label{fig:duplicated-notification}
 \end{figure}
-
-There are two solutions I could think of.
 
 \paragraph*{Solution 1}\label{par:duplication-solution-1}
 
@@ -80,7 +86,6 @@ in the domain, which introduces complexity.
 Furthermore, the Router has to be
 a Singleton~\cite[pp.~127-134]{gamma_design_1994}
 in order to process all the Notifications.
-
 It would create a bottleneck,
 as the Router would need to process every new Notification
 that goes through the application.
@@ -100,8 +105,9 @@ but the sorting would introduce
 more complexity in the Router.
 
 The time complexity was not the main concern, though.
-The main problem would be
-the additional code complexity,
+Martin Fowler insisted on doing performance optimizations
+after taking care of code complexity~\cite{fowler_refactoring_2019},
+so my main concern was additional code complexity,
 compared to the second solution.
 
 \paragraph*{Solution 2}\label{par:duplication-solution-2}
@@ -131,7 +137,6 @@ and only need to deduplicate their own Notifications.
 The solution is parallelized by nature,
 so there is no bottleneck
 like with the previous example.
-
 The solution is also more scalable.
 As the application grows,
 and more Notifications go through it,
@@ -146,7 +151,6 @@ In the worst case,
 we would have to keep as many previous
 Notification IDs,
 as there are Tags the User is subscribed to.
-
 The code complexity is also superior
 to the previous approach.
 Dropping or saving a Notification is a trivial task,
