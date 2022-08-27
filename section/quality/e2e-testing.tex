@@ -1,5 +1,20 @@
 \subsection{E2E Testing}\label{sec:e2e-testing}
 
+E2E testing is a way to test the whole solution.
+Everything,
+from setting up the application stack
+to the complete set of interactions
+that a user can perform,
+both from the perspective of notification producer,
+and the Notipie UI in the web browser.
+E2E testing, however, does not provide
+the best bug finding capabilities.
+Therefore,
+I developed more manual testing scenarios,
+which include portions of the system
+that are bigger than unit tests,
+but more granular than a full E2E test.
+
 There are two ways of E2E testing,
 manual and automatic.
 I chose the former,
@@ -16,6 +31,10 @@ snapshot tests\footnote{
   Snapshot testing is a frontend-specific term
   explained in section~\ref{sec:ui-testing}.
 }.
+Not every task has to be automated
+if it is not executed that often
+or if the cost of automation outgrows
+the payoffs~\cite{millett_patterns_2015}.
 All of those automatic tests
 raised my confidence in the project high enough
 that I did not have to manually test

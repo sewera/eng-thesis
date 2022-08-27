@@ -1,0 +1,45 @@
+\subsection{Containerization}\label{sec:containerization}
+
+% TODO: Elaborate (eng-thesis #22)
+Containerization is a technique of running an application
+in a virtualized environment.
+A container provides all the necessary dependencies
+for the application,
+for instance, shared libraries,
+like \texttt{libc} and core utils implementations.
+There is a difference between container-based virtualization
+(containerization) and full virtualization, though.
+The container runs on a shared kernel,
+as opposed to having its own
+virtual CPU, memory, and own kernel~\cite{watada_emerging_2019}.
+The main advantage is to maintain separation
+and minimize coupling between
+the major components of the architecture~\cite{stytz_rapid_1997},
+most often microservices.
+
+I decided to use the Docker technology
+for containerization in my project.
+Not only is it a good fit for microservices,
+but also it features many time-savers in its ecosystem.
+For example,
+defining containers
+is as easy as writing a Dockerfile.
+The public Docker Registry,
+called Docker Hub contains a plethora
+of useful existing images ready for use~\cite{jaramillo_leveraging_2016}
+that include, inter alia:
+Linux distributions, like Debian,
+reverse proxies, like Nginx,
+or build environments, like Node.js.
+
+To simplify the deployment process,
+I decided to containerize my application
+with Docker.
+For the backend container,
+I used different images
+for building the binaries
+and for running the service.
+For the frontend container the approach was similar,
+but for generating static files
+and hosting them.
+The setup is depicted in appendix~\ref{apx:containerization-with-docker}.

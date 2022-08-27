@@ -5,6 +5,14 @@ for enforcing common style guidelines,
 commit message format,
 and as a general reminder
 to perform certain tasks before checking in the code.
+They are shell scripts ran by Git
+when certain events occur.
+I use pre-commit and commit-msg hooks.
+A pre-commit hook runs just before committing
+and prevents a commit if it fails.
+A commit-msg hook simply checks
+if a commit message written by a programmer
+meets certain criteria.
 
 From my professional experience,
 git hooks have to be very quick,
@@ -20,3 +28,10 @@ I decided to go with manually written shell scripts
 as git hooks.
 They turned out to be very performant,
 easy to set up, and customize.
+For a pre-commit hook I set up code formatting checks.
+If the staged for commit code is not formatted correctly,
+it fails.
+For a commit-msg hook I set up a regular-expression-based
+message checking.
+The commit message has to follow
+Conventional Commits Specification~\cite{petrungaro_conventional_2019}.

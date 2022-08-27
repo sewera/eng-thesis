@@ -2,6 +2,15 @@
 
 To simplify the frontend code,
 I needed to use a single source of truth for the data.
+Store,
+which is a solution for state management
+in frontend applications,
+is a singleton~\cite{gamma_design_1994}
+that can be read by any component,
+but can be mutated only using certain functions,
+or, in Redux library's case, dispatching actions.
+This approach prevents any data races
+or having the store in an unstable state.
 I used both Redux~\cite{gaeraon_redux_2022},
 and Zustand~\cite{kato_zustand_2022} for this task
 as \textit{store} implementations,
