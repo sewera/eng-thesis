@@ -1,28 +1,28 @@
 \subsection{E2E Testing}\label{sec:e2e-testing}
 
-E2E testing is a way to test the whole solution.
+\ac{E2E} testing is a way to test the whole solution.
 Everything,
 from setting up the application stack
 to the complete set of interactions
 that a user can perform,
 both from the perspective of notification producer,
-and the Notipie UI in the web browser.
-E2E testing, however, does not provide
+and the Notipie \ac{UI} in the web browser.
+\ac{E2E} testing, however, does not provide
 the best bug finding capabilities.
 Therefore,
 I developed more manual testing scenarios,
 which include portions of the system
 that are bigger than unit tests,
-but more granular than a full E2E test.
+but more granular than a full \ac{E2E} test.
 
-There are two ways of E2E testing,
+There are two ways of \ac{E2E} testing,
 manual and automatic.
 I chose the former,
 because writing automatic tests
 require a complex setup,
 a new framework like Selenium~\cite{steward_selenium_2022},
 and a whole other project to maintain.
-E2E test automation is of substantial advantage
+\ac{E2E} test automation is of substantial advantage
 for bigger projects, however,
 my project is well tested with
 unit tests,
@@ -45,8 +45,8 @@ I created two manual testing utilities,
 which helped me with development
 of frontend and backend components independently,
 a test notifications server
-and a test WebSocket client.
-I chose to write both of them in TypeScript,
+and a test \ac{WS} client.
+I chose to write both of them in \ac{TS},
 with as little code as possible;
 first not to introduce another language
 to the project, like Python,
@@ -58,21 +58,21 @@ for such a simple, non-critical task.
 
 The test notifications server
 is a very simple server that sends
-randomly-generated notifications to the UI.
+randomly-generated notifications to the \ac{UI}.
 It can send an initial batch of notifications
-when the UI calls the endpoint synchronously,
-but it also can accept a WS connection
+when the \ac{UI} calls the endpoint synchronously,
+but it also can accept a \ac{WS} connection
 and send one notification at a time asynchronously,
 on a press of the \textit{Enter} key.
 
 The server itself is written
 using Express~\cite{holowaychuck_express_2022},
-a lightweight HTTP framework.
+a lightweight \ac{HTTP} framework.
 The random notification generation
 is done with a help of Faker~\cite{marak_faker_2022},
-a JS library for generating fake,
+a \ac{JS} library for generating fake,
 but realistically-looking data.
-I used it for checking if the UI
+I used it for checking if the \ac{UI}
 is wired up properly,
 when I did not have
 the notification producer
@@ -84,14 +84,14 @@ figure~\ref{fig:notipie-ui-dark}.
 
 \subsubsection{Test WebSocket Client}\label{sec:test-ws-client}
 
-The test WS client
+The test \ac{WS} client
 is a simple client that connects
-to a hard-coded URL on start,
-sets up the WS connection,
+to a hard-coded \ac{URL} on start,
+sets up the \ac{WS} connection,
 and logs everything that is pushed to it.
 It also closes the connection before stopping.
 For the implementation,
-I used the built-in standard WS implementation
+I used the built-in standard \ac{WS} implementation
 in Node~\cite{trott_node_2022}.
 
 I used this test client

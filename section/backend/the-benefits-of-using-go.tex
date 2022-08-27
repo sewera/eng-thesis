@@ -8,7 +8,7 @@ Implicit encapsulation of functions and variables
 starting with a lowercase letter,
 structure field annotations
 enabling easy serialization
-to JSON and YAML,
+to \ac{JSON} and \ac{YAML},
 coroutines automatically managed by the Go runtime,
 or channels,
 just to name a few.
@@ -41,19 +41,21 @@ described in detail in section~\ref{sec:tag-technicalities}
 Standard \texttt{testing} package~\cite{cox_testing_2022} provided
 a unified, and simple tooling for testing.
 I did not have to think anything about test setup.
-No custom scripts, third-party libraries, or IDE setup.
+No custom scripts, third-party libraries, or \ac{IDE} setup.
 All I needed to do was to name a file with a \texttt{\_test.go} suffix,
 write a function starting with \texttt{Test},
 and run \texttt{go\ test\ ./...}.
-Both VSCode with Go plugin and GoLand
+Both \ac{VSCode} with Go plugin and GoLand
 automatically picked up the test setup,
-and I was ready to develop with TDD.
+and I was ready to develop with \ac{TDD}.
 
 Standard \texttt{net/http} package~\cite{cox_http_2022} provides everything
-needed for setting up REST endpoints.
+needed for setting up \ac{REST} endpoints.
 Although I used Gin~\cite{martinez-almeida_gin_2022} for this,
 due to a simpler interface,
-I used status codes and HTTP client implementation from \texttt{net/http}.
+I used status codes
+and \ac{HTTP} client implementation
+from \texttt{net/http}.
 
 \subsubsection{Refactoring to the standards}\label{sec:refactoring-to-the-standards}
 
@@ -82,7 +84,7 @@ in the standard library.
 
 \subsubsection{Third-party libraries}\label{sec:third-party-libraries}
 
-Gin was great for writing REST endpoints,
+Gin was great for writing \ac{REST} endpoints,
 with \texttt{gin.Context} having easy access to
 standard-library-compatible fields,
 making it easily pluggable to other third-party libraries,
@@ -92,7 +94,7 @@ Zap~\cite{shah_zap_2022} provided a reliable
 and performant way to log things in the backend.
 Structured logging,
 straightforward syntax,
-automatic serialization to JSON in production mode,
+automatic serialization to \ac{JSON} in production mode,
 and human-readable format in debug mode,
 paired with low or zero-allocation overhead,
 made it a perfect choice for logging in a microservice.

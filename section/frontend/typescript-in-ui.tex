@@ -1,20 +1,20 @@
 \subsection{TypeScript in UI}\label{sec:typescript-in-ui}
 
-I decided to use TypeScript in my project for the frontend part,
+I decided to use \acl{TS} in my project for the frontend part,
 because of its type checking tools,
 huge popularity,
 and a growing demand for in on the job market.
 
 \subsubsection{Choosing the language}\label{sec:choosing-the-language}
 
-When choosing which language to use in the UI,
+When choosing which language to use in the \ac{UI},
 I considered a couple of options:
 
 \begin{itemize}
       \item
-            plain JavaScript,
+            plain \acl{JS},
       \item
-            TypeScript,
+            \acl{TS},
       \item
             Elm, and
       \item
@@ -23,21 +23,21 @@ I considered a couple of options:
 
 I immediately discarded the last two,
 due to their smaller popularity,
-compared to JavaScript or TypeScript.
+compared to \acl{JS} or \acl{TS}.
 Elm and CoffeeScript may have seen
-a spike of popularity before TypeScript
+a spike of popularity before \acl{TS}
 became main stream,
 but as of now, they have a minuscule market share.
 
 The feature set of the language was also very important to me.
-JavaScript is by far the most popular,
+\Acl{JS} is by far the most popular,
 but it lacks type annotations or pre-runtime type checking.
-TypeScript and Elm turned out to be winners in the type checking toolchain.
-TypeScript also has a big advantage of being very similar to plain JavaScript,
+\Acl{TS} and Elm turned out to be winners in the type checking toolchain.
+\Acl{TS} also has a big advantage of being very similar to plain \acl{JS},
 so the transpiled code is very readable.
 
 A big factor was general trend of language's popularity growth.
-TypeScript was a clear winner in this scenario,
+\Acl{TS} was a clear winner in this scenario,
 being third most loved language
 and second most wanted language
 in the Stack Overflow Developer Survey 2021~\cite{stack_overflow_2021_2021}.
@@ -46,7 +46,7 @@ in the \textit{Most Loved} section,
 both of which are non-frontend languages,
 and Python in the \textit{Most Wanted} section,
 which is also not a frontend language.
-Another report confirming the growing popularity of TypeScript
+Another report confirming the growing popularity of \acl{TS}
 is Github Octoverse Report 2021~\cite{github_inc_2021_2021}.
 Since 2017,
 it beat
@@ -55,23 +55,23 @@ C,
 C++,
 C\#,
 Shell, and
-PHP
+\ac{PHP}
 and is, as of 2021, the fourth top language on Github.
 
 \subsubsection{Working with TypeScript}\label{sec:working-with-typescript}
 
-Starting with TypeScript was fairly easy.
+Starting with \acl{TS} was fairly easy.
 The toolchain was included in the project creation scripts.
-Most dependencies had good TypeScript annotations,
-or they were completely written in TypeScript,
+Most dependencies had good \acl{TS} annotations,
+or they were completely written in \acl{TS},
 which was very helpful for maintaining type safety.
 
 Learning the language was also very easy.
-I was already familiar with JavaScript,
+I was already familiar with \acl{JS},
 so I only needed to learn the type annotations,
 which were very intuitive to use.
 I also found out that because of the type annotations,
 function composition became much easier,
 so I had less problem working with more complex
 language structures.
-TypeScript made writing code easier than JavaScript.
+\Acl{TS} made writing code easier than \acl{JS}.

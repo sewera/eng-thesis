@@ -1,18 +1,18 @@
 \subsection{UI networking}\label{sec:ui-networking}
 
 The nature of notifications required me to use
-both REST data fetching and asynchronous data pushes from the backend.
-For the latter, I decided to use WebSockets,
+both \ac{REST} data fetching and asynchronous data pushes from the backend.
+For the latter, I decided to use \ac{WS},
 a standard defined in RFC6455~\cite{fette_rfc6455_2011}, and
 RxJS~\cite{lesh_rxjs_2022}, an implementation of
 ReactiveX library~\cite{gross_reactivex_2021}.
 
 \subsubsection{REST data fetching}\label{sec:rest-data-fetching}
 
-I used simple REST~\cite{perrier_rest_2022} requests
+I used simple \ac{RES}T~\cite{perrier_rest_2022} requests
 for fetching the notifications
 that are already on the backend server.
-The standard Fetch browser API~\cite{perrier_fetch_2022}
+The standard Fetch browser \ac{API}~\cite{perrier_fetch_2022}
 was sufficient for the task.
 
 \subsubsection{Reactive Raven}\label{sec:reactive-raven}
@@ -22,7 +22,8 @@ on using RxJS for all real-time data fetching,
 enabling the separation of concerns in the code,
 and decoupling the state management implementation
 from the networking implementation.
-When searching for the optimal solution for pushing the data to the UI,
+When searching for the optimal solution
+for pushing the data to the \ac{UI},
 I came across two major solutions:
 
 \begin{itemize}
@@ -36,10 +37,10 @@ I came across two major solutions:
             so external communication and storing data are dependent on each other.
       \item
             Redux Saga~\cite{elouafi_redux_2022} --
-            good for managing side effects with plain JavaScript,
+            good for managing side effects with plain \ac{JS},
             but it uses generator functions
             that yield a different type every time,
-            so it is very problematic to use with strict TypeScript.
+            so it is very problematic to use with strict \ac{TS}.
 \end{itemize}
 
 Unfortunately,

@@ -41,10 +41,10 @@ representing the levels of abstraction:
             and connects those proxies with the domain components,
       \item
             \texttt{impl} -- implements network endpoints,
-            WebSockets, and persistence,
+            \ac{WS} connections, and persistence,
       \item
             \texttt{infra} -- configures the application
-            and sets up the context for DI.
+            and sets up the context for \ac{DI}.
 \end{itemize}
 
 There also was a \texttt{model} package
@@ -56,9 +56,9 @@ to reuse it in the notification producer.
 
 The grid is an application layer
 that connects implementations of
-the endpoints, WebSockets, and persistence
+the endpoints, \ac{WS} connections, and persistence
 with the domain objects.
-I decided to define that name in the UL
+I decided to define that name in the \ac{UL}
 to mean this exact intermediate layer.
 The name itself was inspired by a power grid
 which connects components
@@ -74,7 +74,7 @@ for domain Apps and Users\footnote{
 Those proxies convert the applicable network models
 and perform intermediate procedures
 that do not concern the domain,
-like Notification ID generation.
+like Notification \ac{ID} generation.
 
 This layer is especially important
 to keep the domain clean and concise

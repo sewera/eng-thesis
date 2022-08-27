@@ -32,7 +32,7 @@ or the configuration files,
 but the command line arguments
 always take precedence.
 The configuration files themselves
-can be stored in JSON or YAML format.
+can be stored in \ac{JSON} or \ac{YAML} format.
 I chose those two,
 because they are very popular formats
 for this use case.
@@ -43,7 +43,7 @@ The configuration consists of
 the address and port of the backend,
 which are set by user.
 Also, when the producer sends its first notification
-and gets back the App ID,
+and gets back the App \ac{ID},
 the producer appends it to the configuration file,
 so that it is present in every consecutive push.
 
@@ -51,7 +51,7 @@ The notification template can be any
 subset of an App notification model
 defined in section~\ref{sec:protocol}.
 Everything specified in this template
-can be overwritten with CLI arguments.
+can be overwritten with \ac{CLI} arguments.
 The only requirement for a valid request
 is to have an App name and title set.
 The timestamp is set automatically for us.
@@ -60,18 +60,18 @@ The timestamp is set automatically for us.
 
 As described in the previous section,
 the producer allows different configurations
-for one CLI program,
+for one \ac{CLI} program,
 enabling user to set up many different Apps
 on the same computer.
 Figures~\ref{fig:notipie-one-notification}
 and~\ref{fig:notipie-two-notifications}
 show the producer sending the notifications
-to the Notipie UI.
+to the Notipie \ac{UI}.
 The producer is executed
 with different configurations
 and notification templates.
 The configurations only differ
-with the randomly-generated App ID.
+with the randomly-generated App \ac{ID}.
 
 \begin{figure}[p]
   \centering

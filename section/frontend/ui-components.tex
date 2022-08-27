@@ -1,6 +1,6 @@
 \subsection{UI components}\label{sec:ui-components}
 
-Using components enabled me to split my UI
+Using components enabled me to split my \ac{UI}
 into small, reusable components,
 eliminating code duplication,
 and helping with maintaining the consistent look.
@@ -13,7 +13,7 @@ good architecture for the frontend.
 
 \subsubsection{UI component library}\label{sec:ui-component-library}
 
-A UI component library is a JavaScript or TypeScript library
+A \ac{UI} component library is a \acf{JS} or \acf{TS} library
 enabling a programmer to reduce duplication
 in the frontend codebase.
 It provides a way to split the frontend code into components,
@@ -21,7 +21,7 @@ which can be parametrized, reused, and composed into an entire application,
 and to declaratively describe
 the appearance and behavior of those components
 with a help of functions or classes.
-When choosing the library for the UI components, I considered:
+When choosing the library for the \ac{UI} components, I considered:
 
 \begin{itemize}
   \item
@@ -58,11 +58,11 @@ from the same App\footnote{
   in section~\ref{sec:app}.
 }, and a notification board,
 containing all the notifications
-presented in the UI.
+presented in the \ac{UI}.
 
 \subsubsection{Styling}\label{sec:ui-styling}
 
-In addition to the correct behavior of the UI,
+In addition to the correct behavior of the \ac{UI},
 I needed to bring my design of the card\footnote{
   The design of the card
   is explained in detail
@@ -72,13 +72,13 @@ into reality.
 I had some experience with Bootstrap~4~\cite{otto_bootstrap_2018},
 but I did not like the look of it
 and customizability was complicated.
-I also had experience with plain CSS,
+I also had experience with plain \ac{CSS},
 but I did not want additional hassle
-of maintaining both JS and CSS.
+of maintaining both \ac{JS} and \ac{CSS}.
 
-I decided I will use a CSS utility library,
+I decided I will use a \ac{CSS} utility library,
 which will remove additional effort
-of manual CSS management,
+of manual \ac{CSS} management,
 as well as provide me with the necessary tools
 to implement my own, custom design.
 Tailwind~CSS~\cite{wathan_tailwind_2022}
@@ -94,7 +94,7 @@ mentioned also in section~\ref{sec:inspirations}.
 
 \subsubsection{Testing}\label{sec:ui-testing}
 
-UI visual testing tend to be very expensive,
+\Ac{UI} visual testing tend to be very expensive,
 both in terms of time and money.
 I used Applitools Eyes~\cite{applitools_applitools_2022}
 in my professional work,
@@ -107,10 +107,10 @@ I used Jest~\cite{bekkhus_jest_2022} for unit tests,
 and I was very content with it.
 I found out that it has
 a \textit{snapshot testing} capability~\cite{bekkhus_snapshot_2022}.
-In addition to a CSS utility library
+In addition to a \ac{CSS} utility library
 like Tailwind~CSS,
 I could be fairly sure
-that if all HTML classes stayed the same,
+that if all \ac{HTML} classes stayed the same,
 the look of the entire application
 will stay the same.
 

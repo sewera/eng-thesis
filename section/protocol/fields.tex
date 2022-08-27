@@ -4,15 +4,15 @@ I created two versions of notification models.
 One for the App,
 and one for the client\footnote{
   A client is, e.g.,
-  a browser tab running Notipie UI,
+  a browser tab running Notipie \ac{UI},
   and is represented
   by a User in the domain (section~\ref{sec:user}).
 }.
 They have a common subset of fields,
 named \texttt{HashableNetNotification}.
 \textit{Hashable},
-because this portion is hashed with 256-bit SHA-2
-in order to generate a unique notification ID.
+because this portion is hashed with 256-bit \ac{SHA-2}
+in order to generate a unique notification \ac{ID}.
 The following fields are common:
 
 \begin{itemize}
@@ -20,21 +20,22 @@ The following fields are common:
         in RFC3339 format\footnote{
           RFC3339~\cite{clyne_rfc3339_2002} is based on
           ISO 8601:2000~\cite{international_organization_for_standardization_iso_2000},
+          published by \ac{ISO} in 2000,
           but even the latest, 2019 version of ISO 8601
           is compatible with RFC3339 in this use case.
         }, required,
   \item AppName -- the name of the App sending notification, required,
-  \item AppID -- the ID of the App
+  \item AppID -- the \ac{ID} of the App
         if it sends a notification after the first one\footnote{
           This mechanism is described in section~\ref{sec:app}.
         },
-  \item AppImgURI -- the image URI of the app
+  \item AppImgURI -- the image \ac{URI} of the app
         used as a logo on a notification card;
         if empty, a logo is generated from the AppName,
   \item Title -- the title of a notification, required,
   \item Subtitle -- an optional subtitle of a notification,
   \item Body -- an optional description of a notification,
-  \item ExtURI, ReadURI, and ArchiveURI -- URIs
+  \item ExtURI, ReadURI, and ArchiveURI -- \acp{URI}
         for seeing the notification in an external service,
         marking it as read in this service, and archiving it.
 \end{itemize}
@@ -44,8 +45,8 @@ for an App, and a client.
 For an App, it is called \texttt{AppNotification},
 and for a client, \texttt{ClientNotification}.
 Both App and client versions
-have an additional common field, ID,
-which is a notification ID
+have an additional common field, \ac{ID},
+which is a notification \ac{ID}
 based on a hash from \texttt{HashableNetNotification}.
 It could not be included in the common portion,
 because the hash of such common set of fields

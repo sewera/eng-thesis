@@ -12,31 +12,31 @@ and not think about endianness.
 
 Then, I wanted to use a format
 that was popular for network data exchange.
-The candidates were XML and JSON.
-I did not want to go with XML,
+The candidates were \ac{XML} and \ac{JSON}.
+I did not want to go with \ac{XML},
 as the parsing is not that easy,
 readability is very poor,
 and the popularity is dropping
-in favor of JSON.
-I chose JSON,
-because of its support by TypeScript and Go,
+in favor of \ac{JSON}.
+I chose \ac{JSON},
+because of its support by \acf{TS} and Go,
 either as a language feature,
 or in a standard library.
-I also chose JSON for the push response
-containing App ID
+I also chose \ac{JSON} for the push response
+containing App \ac{ID}
 for consistency.
 
-I decided to support both JSON and YAML
+I decided to support both \ac{JSON} and \ac{YAML}
 in the configuration files for the producer,
 including the notification template\footnote{
   More on the configuration files and templates
   for the producer
   in section\ref{sec:configuration-and-notification-templates}.
 }.
-YAML is favorable in configuration files,
+\ac{YAML} is favorable in configuration files,
 so I wanted to provide a uniform
 format for a configuration file
 and a template.
-YAML, however,
+\ac{YAML}, however,
 does not go through the network
 anywhere in Notipie.

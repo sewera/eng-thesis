@@ -146,14 +146,14 @@ duplicated messages from different Tags
 will start to appear.
 
 Then, we can simply extend the length of
-previous Notification IDs that we check.
+previous Notification \acp{ID} that we check.
 In the worst case,
 we would have to keep as many previous
-Notification IDs,
+Notification \acp{ID},
 as there are Tags the User is subscribed to.
 The code complexity is also superior
 to the previous approach.
 Dropping or saving a Notification is a trivial task,
 with a simple algorithm:
-when the current Notification ID is found in the
-already received IDs, drop it; otherwise, save it.
+when the current Notification \ac{ID} is found in the
+already received \acp{ID}, drop it; otherwise, save it.
