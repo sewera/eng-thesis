@@ -33,7 +33,7 @@ ACRONYMS_OUT_FILE=$(META_OUT_DIR)/$(ACRONYMS_SORTED_FILE)
 DEPENDENCIES_DIR=node_modules
 IGNORED_FILES=indent.log *.bib.blg
 
-.PHONY: all install install-hooks clean-hooks pdf chart sort-acronyms sort-bibliography sb dist release version rerender rmout clean nuke tidy watch open
+.PHONY: all install install-hooks clean-hooks pdf chart sa sort-acronyms sb sort-bibliography dist release version rerender rmout clean nuke tidy watch open
 
 LATEXMK_OPTIONS=-output-directory=$(OUT_DIR) -bibtex -pdf -pdflatex=pdflatex
 
@@ -68,6 +68,8 @@ $(CHART_OUT_DIR):
 
 
 # Sort acronyms
+
+sa: sort-acronyms
 
 sort-acronyms: $(ACRONYMS_OUT_FILE)
 
