@@ -428,22 +428,6 @@
     \addcontentsline{toc}{section}{\listtablename}
 }
 
-%--------------------------
-% Acronym list
-%--------------------------
-% \newcommand{\acronymlist}{
-%     \ifnum \pdf@strcmp{\@lang}{pl} = 0
-%         \section*{Wykaz symboli i skrótów}
-%     \fi
-%     \ifnum \pdf@strcmp{\@lang}{en} = 0
-%         \section*{List of Symbols and Abbreviations}
-%     \fi
-% }
-% \newcommand{\acronym}[2]{
-%     \par\noindent\hspace{0.4em}
-%     {\textbf{#1} -- #2}
-% }
-
 %-------------------
 % Appendix list
 %-------------------
