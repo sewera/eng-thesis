@@ -3,56 +3,60 @@
 An overview of the backend architecture
 from the asynchronous notification flow perspective
 is presented in figure~\ref{fig:high-level-backend-flow}.
-The project on the top-level is structured over 4 directories,
+The project on the top level is structured over 4 directories,
 named according to
 the \citetitle{quest_standard_2022}~\cite{quest_standard_2022}:
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=6.5cm,keepaspectratio]{chart/out/backend-flow.pdf}
-  \caption{Backend architecture for asynchronous notification flow}
-  \label{fig:high-level-backend-flow}
+      \centering
+      \includegraphics[width=6.5cm,keepaspectratio]{chart/out/backend-flow.pdf}
+      \caption{Backend architecture for asynchronous notification flow}
+      \label{fig:high-level-backend-flow}
 \end{figure}
 
 \begin{itemize}
-  \item
-        \texttt{cmd} -- entry point to the application (\texttt{main})
-  \item
-        \texttt{internal} -- application-specific code
-  \item
-        \texttt{pkg} -- reusable utils, not specific to the application
-  \item
-        \texttt{test} -- black box integration test code
+      \item
+            \texttt{cmd} -- entry point to the application (\texttt{main}),
+      \item
+            \texttt{internal} -- application-specific code,
+      \item
+            \texttt{pkg} -- reusable utils, not specific to the application,
+      \item
+            \texttt{test} -- black box integration test code.
 \end{itemize}
 
-\paragraph{The internal directory}\label{sec:the-internal-directory}
+\paragraph*{The internal directory}\label{sec:the-internal-directory}
 
 Application-specific code is split into 5 directories
 representing the levels of abstraction:
 
 \begin{itemize}
-  \item
-        \texttt{domain} -- business logic,
-        defines data structures and communication of domain objects
-        on the highest level of abstraction,
-  \item
-        \texttt{grid} -- lower level of abstraction than domain,
-        defines proxies that convert network models into domain models,
-        and connects those proxies with the domain components,
-  \item
-        \texttt{impl} -- implements network endpoints,
-        \ac{WS} connections, and persistence,
-  \item
-        \texttt{infra} -- configures the application
-        and sets up the context for \ac{DI}.
+      \item
+            \texttt{domain} -- business logic,
+            defines data structures and communication of domain objects
+            on the highest level of abstraction,
+      \item
+            \texttt{grid} -- lower level of abstraction than domain,
+            defines proxies that convert network models into domain models,
+            and connects those proxies with the domain components,
+      \item
+            \texttt{impl} -- implements network endpoints,
+            \ac{WS} connections, and persistence,
+      \item
+            \texttt{infra} -- configures the application
+            and sets up the context for \ac{DI}.
 \end{itemize}
 
 There also was a \texttt{model} package
 in the \texttt{internal} directory,
-but I moved it to an exportable \texttt{pkg} directory,
-to reuse it in the notification producer.
+but I moved it to an exportable \texttt{pkg} directory
+in order to reuse it in the notification producer.
+This package includes reusable network models,
+used for communication between application components,
+like backend and producer.
+More on the communication protocol in section~\ref{sec:protocol}.
 
-\paragraph{Grid}\label{sec:grid}
+\paragraph*{Grid}\label{sec:grid}
 
 The grid is an application layer
 that connects implementations of
@@ -67,20 +71,19 @@ to appliances.
 
 The implementation is based on the proxies
 for domain Apps and Users\footnote{
-  The App and the User are defined in
-  sections~\ref{sec:app}~and~\ref{sec:user}
-  respectively.
+      The App and the User are defined in
+      sections~\ref{sec:app}~and~\ref{sec:user}
+      respectively.
 }.
 Those proxies convert the applicable network models
 and perform intermediate procedures
 that do not concern the domain,
 like Notification \ac{ID} generation.
-
 This layer is especially important
-to keep the domain clean and concise
+to keep the domain clean and concise,
 and to enable easy replacing\footnote{
-  The differences between writing code
-  for reuse and replacement are described in detail
-  in section~\ref{sec:code-quality}.
+      The differences between writing code
+      for reuse and replacement are described in detail
+      in section~\ref{sec:code-quality}.
 }
 of concrete implementations.

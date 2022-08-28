@@ -5,7 +5,7 @@ I needed to use a single source of truth for the data.
 Store,
 which is a solution for state management
 in frontend applications,
-is a singleton~\cite{gamma_design_1994}
+is a Singleton~\cite{gamma_design_1994}
 that can be read by any component,
 but can be mutated only using certain functions,
 or, in Redux library's case, dispatching actions.
@@ -16,7 +16,7 @@ and Zustand~\cite{kato_zustand_2022} for this task
 as \textit{store} implementations,
 and Zustand came on top as a simpler solution for my application.
 
-\paragraph{Redux}\label{sec:redux}
+\paragraph*{Redux}\label{sec:redux}
 
 Redux is great for big applications with lots of components.
 Being one of the most popular state management libraries for React,
@@ -26,7 +26,7 @@ it required me to write a lot of boilerplate code,
 and thus was not easily maintainable
 for a smaller project like Notipie.
 
-\paragraph{Zustand}\label{sec:zustand}
+\paragraph*{Zustand}\label{sec:zustand}
 
 Zustand is a lot simpler than Redux,
 requires a lot less boilerplate code,

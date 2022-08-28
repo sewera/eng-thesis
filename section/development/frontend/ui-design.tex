@@ -6,7 +6,7 @@ and minimize complexity of the interface.
 Maintaining simplicity of the interface is not an easy task,
 so I took inspiration from the professional designs.
 
-\paragraph{Inspirations}\label{sec:inspirations}
+\paragraph*{Inspirations}\label{sec:inspirations}
 
 My main inspirations for the interface were
 Apple Human Interface Guidelines~\cite{apple_inc_human_2022}
@@ -36,7 +36,7 @@ Their book,
 was an excellent guidance of the best practices
 of the modern \ac{UI} design.
 
-\paragraph{Final design}\label{sec:final-design}
+\paragraph*{Final design}\label{sec:final-design}
 
 The card is a building block for the entire \ac{UI}.
 It provides the most interaction in the whole application,
@@ -111,14 +111,16 @@ Those features, highlighted in figure~\ref{fig:card-with-guides}, include:
 
 \begin{figure}[p]
       \centering
-      \includegraphics[width=10cm,keepaspectratio]{img/card_labeled.png}
-      \caption{The card with labeled elements}
-      \label{fig:card-with-labeled-elements}
-\end{figure}
-
-\begin{figure}[p]
-      \centering
-      \includegraphics[width=10cm,keepaspectratio]{img/card_guides.png}
-      \caption{The card with guides}
-      \label{fig:card-with-guides}
+      \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth,keepaspectratio]{img/card_labeled.png}
+            \caption{Card with labeled elements}
+            \label{fig:card-with-labeled-elements}
+      \end{minipage}\hfill
+      \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth,keepaspectratio]{img/card_guides.png}
+            \caption{Card with guides}
+            \label{fig:card-with-guides}
+      \end{minipage}
 \end{figure}

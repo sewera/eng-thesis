@@ -3,14 +3,14 @@
 The Tag in the Notipie domain
 is a Notification broker
 between the Apps and the Users.
-It stores which Apps are attached to it
+It stores which Apps are attached
 and which Users are subscribed to it.
 It also ensures thread-safety
 for attaching and detaching of Apps,
 as well as subscribing and unsubscribing of Users.
 
 At first,
-I wanted it to be named a Room,
+I wanted it to be named ``Room'',
 like a chat room,
 so that many Users could have been
 in different Rooms,
@@ -19,22 +19,22 @@ However,
 it was less understood by people I spoke with,
 mainly due to the fact,
 that one App sending to different rooms,
-and a User being in different rooms simultaneously
+and a User being in different rooms simultaneously,
 contradicts the existing understanding of chat rooms.
 
 A User can subscribe to the Tag,
 and an App can add itself to a Tag.
-The thread-safety of those operations
-are ensured by mutexes.
 When that happens,
 the forwarding of Notifications
 between said App and User is enabled.
+Thread-safety of those operations
+are ensured by mutexes.
 The Tag is actively listening
 on the Notification channel (\texttt{NotificationChan}),
 and every time a new Notification arrives,
 the \texttt{broadcast} method~(listing~\ref{lst:broadcast-method-in-tag})
 is executed.
-The \texttt{broadcast} method in turn sends that Notification
+The \texttt{broadcast} method then sends that Notification
 to every User subscribed to this Tag.
 The flow is presented in figure~\ref{fig:notification-flowchart}.
 
@@ -84,7 +84,7 @@ as it does not need any deduplication logic.
 However, there is a whole new component
 in the domain, which introduces complexity.
 Furthermore, the Router has to be
-a Singleton~\cite[pp.~127-134]{gamma_design_1994}
+a Singleton~\cite{gamma_design_1994}
 in order to process all the Notifications.
 It would create a bottleneck,
 as the Router would need to process every new Notification
@@ -147,9 +147,8 @@ will start to appear.
 
 Then, we can simply extend the length of
 previous Notification \acp{ID} that we check.
-In the worst case,
-we would have to keep as many previous
-Notification \acp{ID},
+We can start with keeping as many previous
+Notification \acp{ID}
 as there are Tags the User is subscribed to.
 The code complexity is also superior
 to the previous approach.
