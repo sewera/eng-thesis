@@ -4,33 +4,49 @@
 
 [Project board](https://github.com/users/sewera/projects/2)
 
-## Generate
+## Usage
 
-```sh
-make
-```
+If you render this project for the first time, simply run `make`.
+Otherwise:
 
-## Watch mode
-
-```sh
-make watch
-```
+1. Install dependencies (only once)
+   ```sh
+   make install
+   ```
+2. Generate PDF
+   ```sh
+   make pdf
+   ```
+   - Watch mode (optional for development)
+     ```sh
+     make watch
+     ```
+3. Open PDF in a viewer
+   ```sh
+   make open
+   ```
+4. Release and push to Github
+   ```sh
+   make release
+   ```
 
 ## Tips
 
-- Use [Semantic Line Breaks](https://sembr.org/)
-- Figure template:
-  ```latex
-  \begin{figure}[h]
-    \centering
-    \includegraphics[width=10cm,keepaspectratio]{path}
-    \caption{Caption}
-    \label{fig:label}
-  \end{figure}
-  ```
+Use [Semantic Line Breaks](https://sembr.org/).
 
-Based on [ArturB/WUT-Thesis](https://github.com/ArturB/WUT-Thesis),
-with additional cleanup and refactoring.
+### Figure template
+
+```latex
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm,keepaspectratio]{path}
+  \caption{Caption}
+  \label{fig:label}
+\end{figure}
+```
+
+> Based on [ArturB/WUT-Thesis](https://github.com/ArturB/WUT-Thesis),
+> with additional cleanup and refactoring.
 
 ---
 
