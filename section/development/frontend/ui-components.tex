@@ -3,7 +3,7 @@
 Using components enabled me to split my \ac{UI}
 into small, reusable components,
 eliminating code duplication,
-and helping with maintaining the consistent look.
+and helping maintain consistent look.
 I wanted to choose the right library
 for this task,
 so that the development would be quick,
@@ -46,7 +46,7 @@ There are currently two categories,
 \textit{notification}.
 Canvas category includes
 an \texttt{AppCanvas} component,
-responsible for displaying
+which is responsible for displaying
 a background in the right color,
 and controlling the light or dark mode setting.
 Notification category includes
@@ -70,8 +70,9 @@ I needed to bring my design of the card\footnote{
 } and other components
 into reality.
 I had some experience with Bootstrap~4~\cite{otto_bootstrap_2018},
-but I did not like the look of it
-and customizability was complicated.
+but I did not like the look of it,
+and on top of that,
+customizability was complicated.
 I also had experience with plain \ac{CSS},
 but I did not want additional hassle
 of maintaining both \ac{JS} and \ac{CSS}.
@@ -94,7 +95,7 @@ mentioned also in section~\ref{sec:inspirations}.
 
 \paragraph*{Testing}\label{sec:ui-testing}
 
-\Ac{UI} visual testing tend to be very expensive,
+\Ac{UI} visual testing tends to be very expensive,
 both in terms of time and money.
 I used Applitools Eyes~\cite{applitools_applitools_2022}
 in my professional work,
@@ -114,8 +115,9 @@ that if all \ac{HTML} classes stayed the same,
 the look of the entire application
 will stay the same.
 
-The snapshot tests were very quick,
-easy to review and debug,
+The snapshot tests were very quick
+and easy to review.
+The were also easy to debug,
 whenever there was some unwanted change.
 Coupled with Tailwind~CSS,
 they provided a very powerful tool

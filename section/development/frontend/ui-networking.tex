@@ -27,24 +27,24 @@ for pushing the data to the \ac{UI},
 I came across two major solutions:
 
 \begin{itemize}
-  \item
-        Redux Thunk~\cite{gaeraon_redux_2022-1} --
-        enough for fetching data on user interaction,
-        e.g., on a button click,
-        but it provides virtually full implementation lock-in
-        to the Redux store, and very little separation of concerns.
-        Fetching data is an action dispatched on a store,
-        so external communication and storing data are dependent on each other.
-  \item
-        Redux Saga~\cite{elouafi_redux_2022} --
-        good for managing side effects with plain \ac{JS},
-        but it uses generator functions
-        that yield a different type every time,
-        so it is very problematic to use with strict \ac{TS}.
+      \item
+            Redux Thunk~\cite{gaeraon_redux_2022-1} --
+            enough for fetching data on user interaction,
+            e.g., on a button click,
+            but it provides virtually full implementation lock-in
+            to the Redux store, and very little separation of concerns.
+            Fetching data is an action dispatched on a store,
+            so external communication and storing data are dependent on each other.
+      \item
+            Redux Saga~\cite{elouafi_redux_2022} --
+            good for managing side effects with plain \ac{JS},
+            but it uses generator functions
+            that yield a different type every time,
+            so it is very problematic to use with strict \ac{TS}.
 \end{itemize}
 
 Unfortunately,
-Thunks and sagas did not provide the separation of concerns
+Thunks and Sagas did not provide the separation of concerns
 I wanted to achieve.
 Fetching or acting upon pushed data
 is a different concern than storing it.
@@ -59,6 +59,7 @@ when I want to fetch data.
 Of course, the data can be immediately stored after fetching,
 but this behavior should be injected later,
 so that there is no store implementation lock-in.
-This separation of concerns enabled me to
-migrate from Redux to Zustand as my \textit{store} implementation,
+The separation of concerns created by using RxJS
+enabled me to migrate from Redux to Zustand
+as my store implementation,
 as described in the next section.

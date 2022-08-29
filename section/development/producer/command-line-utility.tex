@@ -7,13 +7,13 @@ of Go development.
 That is why I also prepared
 a command line utility
 that is compatible with the most popular shells:
-Unix-like shells and Powershell.
+Unix-like shells,
+and Powershell.
 
 Its feature set is very similar
 to the one mentioned in the previous section,
-but it also includes configuration
-and notification templates
-for convenience.
+but it also includes configuration files support,
+and notification templates for convenience.
 This in turn enables its users
 to set up the producer for multiple Apps
 on one system.
@@ -27,16 +27,16 @@ and~\ref{fig:notipie-two-notifications}.
 \paragraph*{Configuration and notification templates}\label{sec:configuration-and-notification-templates}
 
 This version of a producer can be configured
-either through the command line arguments,
+either through the command line arguments
 or the configuration files,
 but the command line arguments
 always take precedence.
 The configuration files themselves
 can be stored in \ac{JSON} or \ac{YAML} format.
 I chose those two,
-because they are very popular formats
+because they are very popular
 for this use case.
-Those formats can also be used
+These formats can also be used
 for specifying a notification template.
 
 The configuration consists of
@@ -71,7 +71,7 @@ The producer is executed
 with different configurations
 and notification templates.
 The configurations only differ
-with the randomly-generated App \ac{ID}.
+in the randomly-generated App \ac{ID}.
 
 \begin{figure}[p]
   \centering
