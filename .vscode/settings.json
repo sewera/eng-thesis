@@ -28,6 +28,7 @@
     ".git/objects",
     ".vscode",
     ".vscode-insiders",
+    "package.json",
     "README.md"
   ],
 
