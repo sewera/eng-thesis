@@ -29,6 +29,18 @@ because that was not the scope of my project.
 I managed to keep my focus on quality,
 and keep the list of features in check
 by defining an \ac{MVP}.
+
+Every time I added something to the application,
+I ran automated integration test suite
+(appendix~\ref{apx:integration-test-core})
+in order to check if the application quality
+did not deteriorate.
+I made sure to run the test suite as often as I could
+by making it performant.
+And so, one integration test run takes 170 milliseconds in total,
+as depicted in listing~\ref{lst:integration-test-run}.
+The whole automated test suite ran on every change
+pushed to Github servers to ensure the solution quality.
 I also double-checked the correct behavior
 of my application with manual \ac{E2E} tests.
 
