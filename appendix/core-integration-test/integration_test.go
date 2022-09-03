@@ -1,3 +1,14 @@
+package test
+
+import (
+	"testing"
+
+	"github.com/blazejsewera/notipie/core/pkg/lib/fp"
+	"github.com/blazejsewera/notipie/core/pkg/lib/netutil"
+	"github.com/blazejsewera/notipie/core/pkg/model"
+	"github.com/stretchr/testify/assert"
+)
+
 func TestNotificationFlow(t *testing.T) {
 	init := func() int {
 		port, err := netutil.FindFreePort()
@@ -48,4 +59,14 @@ func TestNotificationFlow(t *testing.T) {
 		// then
 		assertByTitle(t, getNotificationsTitle, userRestClient.notifications)
 	})
+}
+
+func assertByTitle(t testing.TB, expectedTitle string, notifications []model.ClientNotification) {
+	t.Helper()
+
+	notificationTitles := fp.Map(func(n model.ClientNotification) string {
+		return n.Title
+	}, notifications)
+
+	assert.Contains(t, notificationTitles, expectedTitle)
 }
