@@ -8,7 +8,13 @@ I chose plain text,
 because portability was very important to me.
 I wanted to have the protocol able to run
 between different processor architectures,
-and not think about endianness.
+and not think about endianness\footnote{
+  Endianness is the attribute of a system
+  that indicates whether integers are represented with
+  the most significant byte
+  stored at the lowest address (big endian)
+  or at the highest address (little endian)~\cite{adiga_how_2007}.
+}.
 
 Then, I wanted to use a format
 that was popular for network data exchange.
@@ -31,7 +37,7 @@ in the configuration files for the producer,
 including the notification template\footnote{
   More on the configuration files and templates
   for the producer
-  in section\ref{sec:configuration-and-notification-templates}.
+  in section~\ref{sec:configuration-and-notification-templates}.
 }.
 \ac{YAML} is favorable in configuration files,
 so I wanted to provide a uniform

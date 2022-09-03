@@ -28,7 +28,11 @@ When that happens,
 the forwarding of Notifications
 between said App and User is enabled.
 Thread-safety of those operations
-are ensured by mutexes.
+are ensured by mutexes\footnote{
+  A mutual exclusion lock.
+  A mutex serializes the execution
+  of multiple threads~\cite{mattson_patterns_2004}.
+}.
 The Tag is actively listening
 on the Notification channel (\texttt{NotificationChan}),
 and every time a new Notification arrives,
