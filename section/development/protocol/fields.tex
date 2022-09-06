@@ -23,18 +23,18 @@ The following fields are common for both versions:
           published by \ac{ISO} in 2000,
           but even the latest, 2019 version of ISO 8601
           is compatible with RFC3339 in this use case.
-        },
-  \item AppName -- the name of the App sending notification,
+        };
+  \item AppName -- the name of the App sending notification;
   \item AppID -- the \ac{ID} of the App
         if it sends a notification after the first one\footnote{
           This mechanism is described in section~\ref{sec:app}.
-        },
+        };
   \item AppImgURI -- the image \ac{URI} of the app
         used as a logo on a notification card;
-        if empty, a logo is generated from the AppName,
-  \item Title -- the title of a notification,
-  \item Subtitle -- an optional subtitle of a notification,
-  \item Body -- an optional description of a notification,
+        if empty, a logo is generated from the AppName;
+  \item Title -- the title of a notification;
+  \item Subtitle -- an optional subtitle of a notification;
+  \item Body -- an optional description of a notification;
   \item ExtURI, ReadURI, and ArchiveURI -- \acp{URI}
         for seeing the notification in an external service,
         marking it as read in this service, and archiving it.

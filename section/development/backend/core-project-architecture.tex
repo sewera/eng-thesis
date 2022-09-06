@@ -9,11 +9,11 @@ the \citetitle{quest_standard_2022}~\cite{quest_standard_2022}:
 
 \begin{itemize}
       \item
-            \texttt{cmd} -- entry point to the application (\texttt{main}),
+            \texttt{cmd} -- entry point to the application (\texttt{main});
       \item
-            \texttt{internal} -- application-specific code,
+            \texttt{internal} -- application-specific code;
       \item
-            \texttt{pkg} -- reusable utils, not specific to the application,
+            \texttt{pkg} -- reusable utils, not specific to the application;
       \item
             \texttt{test} -- black box integration test code.
 \end{itemize}
@@ -27,14 +27,14 @@ representing the levels of abstraction:
       \item
             \texttt{domain} -- business logic,
             defines data structures and communication of the domain objects
-            on the highest level of abstraction,
+            on the highest level of abstraction;
       \item
             \texttt{grid} -- lower level of abstraction than domain,
             defines proxies that convert network models into domain models,
-            and connects those proxies with the domain components,
+            and connects those proxies with the domain components;
       \item
             \texttt{impl} -- implements network endpoints,
-            \ac{WS} connections, and persistence,
+            \ac{WS} connections, and persistence;
       \item
             \texttt{infra} -- configures the application
             and sets up the context for \ac{DI}.
