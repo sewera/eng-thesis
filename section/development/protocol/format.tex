@@ -15,10 +15,11 @@ and not think about endianness\footnote{
   stored at the lowest address (big endian)
   or at the highest address (little endian)~\cite{adiga_how_2007}.
 }.
-I also did not want to specify any of the lower
+I also did not want to specify any layers of the
 ISO/OSI\footnote{
   \acs{ISO} -- \acl{ISO}; \acs{OSI} -- \acl{OSI}
-} layers~\cite{international_organization_for_standardization_isoiec_1994}.
+} model~\cite{international_organization_for_standardization_isoiec_1994}
+lower than the Application Layer.
 My application does not need to know about them,
 and it should work regardless of the network protocols
 in the Transport or Network Layer.
@@ -29,13 +30,13 @@ The candidates were \ac{XML} and \ac{JSON}.
 I did not want to go with \ac{XML},
 as the parsing is not that easy,
 readability is very poor,
-and the popularity is dropping
+and~the popularity is dropping
 in favor of \ac{JSON}.
 I chose \ac{JSON}
 because of its support by \ac{TS} and Go,
 either as a language feature,
 or in a standard library.
-I also chose \ac{JSON} for the push response
+I~also~chose \ac{JSON} for the push response
 containing App \ac{ID}
 for consistency.
 

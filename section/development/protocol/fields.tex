@@ -13,7 +13,7 @@ named \texttt{HashableNetNotification}.
 \textit{Hashable},
 because this portion is hashed with 256-bit \ac{SHA-2}
 in order to generate a unique notification \ac{ID}.
-The following fields are common:
+The following fields are common for both versions:
 
 \begin{itemize}
   \item Timestamp -- time when the notification was sent
@@ -23,8 +23,8 @@ The following fields are common:
           published by \ac{ISO} in 2000,
           but even the latest, 2019 version of ISO 8601
           is compatible with RFC3339 in this use case.
-        }, required,
-  \item AppName -- the name of the App sending notification, required,
+        },
+  \item AppName -- the name of the App sending notification,
   \item AppID -- the \ac{ID} of the App
         if it sends a notification after the first one\footnote{
           This mechanism is described in section~\ref{sec:app}.
@@ -32,7 +32,7 @@ The following fields are common:
   \item AppImgURI -- the image \ac{URI} of the app
         used as a logo on a notification card;
         if empty, a logo is generated from the AppName,
-  \item Title -- the title of a notification, required,
+  \item Title -- the title of a notification,
   \item Subtitle -- an optional subtitle of a notification,
   \item Body -- an optional description of a notification,
   \item ExtURI, ReadURI, and ArchiveURI -- \acp{URI}
@@ -42,7 +42,7 @@ The following fields are common:
 
 The notifications are further specified
 for an App, and a client.
-For an App, it is called \texttt{AppNotification},
+For an App, it~is called \texttt{AppNotification},
 and for a client, \texttt{ClientNotification}.
 Both App and client versions
 have an additional common field, \ac{ID},
