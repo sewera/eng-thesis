@@ -19,7 +19,7 @@
   "latex-workshop.latex.external.build.args": ["make", "pdf"],
   "latex-workshop.latex.outDir": "%DIR%/out",
 
-  "latex-workshop.view.pdf.invert": 1,
+  "latex-workshop.view.pdf.invert": 0.85,
 
   "cSpell.ignorePaths": [
     "package-lock.json",
