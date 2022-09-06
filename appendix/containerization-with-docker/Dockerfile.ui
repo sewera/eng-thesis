@@ -1,6 +1,5 @@
 # build
 FROM node:16-bullseye AS build-env
-
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 WORKDIR /ui
@@ -9,9 +8,7 @@ WORKDIR /ui
 COPY .yarnrc.yml package.json yarn.lock ./
 COPY .yarn ./.yarn
 RUN yarn install
-
 COPY . .
-
 RUN yarn build
 RUN mv dist /
 RUN mv config/nginx.dev.conf /
