@@ -112,7 +112,7 @@
 \RequirePackage[dvipsnames]{xcolor} % 68 additional named colors (CMYK)
 \RequirePackage{listings}
 \lstdefinestyle{codestyle}{
-    commentstyle=\color{darkgray},
+    commentstyle=\color{Gray},
     keywordstyle=\color{Mulberry},
     stringstyle=\color{RoyalBlue},
     numberstyle=\tiny\color{Gray},
@@ -139,6 +139,25 @@
     morecomment=[f][\color{OliveGreen}]+,   % added lines
     morecomment=[f][\color{Mulberry}]{---}, % diff header lines (must appear after +,-)
     morecomment=[f][\color{Mulberry}]{+++},
+}
+\lstdefinelanguage{dockerfile}{
+    morekeywords={[1]FROM, AS, ARG, ENV, WORKDIR, COPY, RUN, EXPOSE, STOPSIGNAL, ENTRYPOINT},
+    morecomment=[l]\#,
+    morestring=[b]",
+}
+\lstdefinelanguage{yaml}{
+    morecomment=[l]\#,
+    basicstyle=\footnotesize\bfseries\ttfamily\color{Mulberry},
+    moredelim=**[il][\color{Mulberry}{:}\color{Black}]{:},
+}
+\lstdefinelanguage{systemd}{
+    morecomment=[f][\color{RoyalBlue}]{\[},
+    basicstyle=\footnotesize\bfseries\ttfamily\color{Mulberry},
+    moredelim=**[il][\color{Mulberry}{=}\color{Black}]{=},
+}
+\lstdefinelanguage{gotest}{
+    morecomment=[l]{\$},
+    morekeywords={[1]ok},
 }
 
 %----------------------
