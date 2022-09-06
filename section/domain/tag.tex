@@ -2,9 +2,9 @@
 
 The Tag in the Notipie domain
 is a Notification broker
-between the Apps and the Users.
-It stores which Apps are attached
-and which Users are subscribed to it.
+between Apps and Users.
+It stores which Apps are attached to it,
+and which Users are subscribed.
 It also ensures thread-safety
 for attaching and detaching of Apps,
 as well as subscribing and unsubscribing of Users.
@@ -40,7 +40,7 @@ the \texttt{broadcast} method~(listing~\ref{lst:broadcast-method-in-tag})
 is executed.
 The \texttt{broadcast} method then sends that Notification
 to every User subscribed to this Tag.
-The flow is presented in figure~\ref{fig:notification-flowchart}.
+The~flow is presented in figure~\ref{fig:notification-flowchart}.
 
 \begin{figure}[h]
   \centering
@@ -52,7 +52,7 @@ The flow is presented in figure~\ref{fig:notification-flowchart}.
 \subsubsection{Technicalities}\label{sec:tag-technicalities}
 
 There is an obvious problem with this approach.
-When a User is subscribed to two Tags,
+When a User is subscribed to~two Tags,
 and one App has those two Tags assigned,
 then that User can get the same Notification twice
 (figure~\ref{fig:duplicated-notification}).
@@ -105,14 +105,14 @@ scanned in its entirety to determine
 all the Users that need to get the Notification.
 It could be optimized into $O(m \cdot \log n)$
 if the Tag list is sorted,
-but the sorting would introduce
+but~the~sorting would introduce
 more complexity in the Router.
 
 The time complexity was not the main concern, though.
 Martin Fowler insisted on doing performance optimizations
 after taking care of code complexity~\cite{fowler_refactoring_2019},
-so my main concern was additional code complexity,
-compared to the second solution.
+so~my~main concern was additional code complexity,
+compared to the second proposed solution.
 
 \paragraph*{Solution 2}\label{par:duplication-solution-2}
 
@@ -145,7 +145,7 @@ The solution is also more scalable.
 As the application grows,
 and more Notifications go through it,
 we can start to observe race conditions.
-In result,
+In~result,
 duplicated messages from different Tags
 will start to appear.
 
@@ -153,10 +153,10 @@ Then, we can simply extend the length of
 previous Notification \acp{ID} that we check.
 We can start with keeping as many previous
 Notification \acp{ID}
-as there are Tags the User is subscribed to.
+as~there are Tags the User is subscribed to.
 The code complexity is also superior
 to the previous approach.
-Dropping or saving a Notification is a trivial task,
+Dropping or saving a Notification is a fairly trivial task,
 with a simple algorithm:
 when the current Notification \ac{ID} is found in the
 already received \acp{ID}, drop it; otherwise, save it.
