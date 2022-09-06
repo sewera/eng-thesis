@@ -30,7 +30,7 @@ I came across two major solutions:
       \item
             Redux Thunk~\cite{gaeraon_redux_2022-1} --
             enough for fetching data on user interaction,
-            e.g., on a button click,
+            for example, on a button click,
             but it provides virtually full implementation lock-in
             to the Redux store, and very little separation of concerns.
             Fetching data is an action dispatched on a store,
@@ -48,8 +48,7 @@ Thunks and Sagas did not provide the separation of concerns
 I wanted to achieve.
 Fetching or acting upon pushed data
 is a different concern than storing it.
-Both had a strict dependency on Redux
-store implementation,
+Both had a strict dependency on Redux framework,
 so I discarded them as an unacceptable risk
 of relying on libraries I could not change.
 

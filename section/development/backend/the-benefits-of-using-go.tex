@@ -28,9 +28,8 @@ For example, in {tag.go}~(appendix~\ref{apx:concurrency-in-go}),
 after the Tag object is created,
 the constructor calls
 the \texttt{start} method~(listing~\ref{lst:start-method-in-tag}).
-It is running a new goroutine for every Tag instance,
+It is running a new goroutine for every instance of the Tag,
 enabling them to asynchronously communicate with other objects.
-
 The Tag was a particularly special case,
 in which I had to solve
 the Notification duplication problem,
@@ -63,7 +62,7 @@ During this project,
 I refactored my functions to better suit
 the Go standard library.
 It was beneficial
-not only because of a better integration
+not only because of a~better integration
 with the standard library itself,
 but also because of a better integration
 with third-party libraries.
@@ -94,7 +93,7 @@ Zap~\cite{shah_zap_2022} provided a reliable
 and performant way to log things in the backend.
 Structured logging,
 straightforward syntax,
-automatic serialization to \ac{JSON} in production mode,
+automatic serialization to \ac{JSON} in~production mode,
 and human-readable format in debug mode,
 paired with low or zero-allocation overhead,
 made it a perfect choice for logging in a microservice.

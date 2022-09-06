@@ -18,14 +18,14 @@ what is unnecessary in my project,
 and extract only the essentials for my design.
 I began designing with freehand sketching
 on my e-book (figure~\ref{fig:early-ui-sketches}).
-It allowed me to quickly visualize my ideas
+It~allowed me to quickly visualize my ideas
 and decide on the elements that I like.
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=10cm,keepaspectratio]{img/early_ui_sketches.png}
-  \caption{An example early sketch made on e-book}
-  \label{fig:early-ui-sketches}
+      \centering
+      \includegraphics[width=10cm,keepaspectratio]{img/early_ui_sketches.png}
+      \caption{An example early sketch made on e-book}
+      \label{fig:early-ui-sketches}
 \end{figure}
 
 The works of Adam Wathan and Steve Schoger
@@ -46,30 +46,30 @@ The card itself consists of several elements,
 as depicted in figure~\ref{fig:card-with-labeled-elements}:
 
 \begin{enumerate}
-  \item
-        logo,
-        it can be an image
-        or automatically generated \ac{SVG}
-        from the first two letters of the app's name,
-  \item
-        indicator,
-        whether the notification has been seen or not,
-  \item
-        title of the notification,
-  \item
-        subtitle,
-  \item
-        body,
-        which collapses after it reaches a certain length,
-        so that an ellipsis appears (\texttt{...}),
-  \item
-        information about what app sent the notification and when it happened,
-  \item
-        controls to archive,
-        mark as read,
-        or go to external site connected with the notification,
-        like a certain build on Jenkins,
-        or the notification page on Github.
+      \item
+            logo,
+            it can be an image
+            or automatically generated \ac{SVG}
+            from the first two letters of the app's name,
+      \item
+            indicator,
+            whether the notification has been seen or not,
+      \item
+            title of the notification,
+      \item
+            subtitle,
+      \item
+            body,
+            which collapses after it reaches a certain length,
+            so that an ellipsis appears (\texttt{...}),
+      \item
+            information about what app sent the notification and when it happened,
+      \item
+            controls to archive,
+            mark as read,
+            or go to external site connected with the notification,
+            like a certain build on Jenkins,
+            or the notification page on Github.
 \end{enumerate}
 
 The card was also designed with aesthetics in mind.
@@ -79,48 +79,48 @@ but also have features important for visual communication.
 Those features, highlighted in figure~\ref{fig:card-with-guides}, include:
 
 \begin{itemize}
-  \item
-        the rounded corners take the focus away from the card frame,
-        and provide a natural, neutral enclosure for the notification,
-  \item
-        the inner padding is of equal size in each direction
-        to provide optical stability,
-  \item
-        the distance between the logo and title -- subtitle combo
-        is the same size as the padding,
-        making the logo appear centered,
-  \item
-        the title -- subtitle combo itself
-        is centered vertically relative to the logo,
-  \item
-        the distances between the logo,
-        notification body, and app name -- timestamp combo are shorter
-        in order to make the inner section more connected,
-  \item
-        the controls are centered relative to the app name -- timestamp combo,
-  \item
-        the \textit{unread} indicator is unobtrusive enough
-        not to steal all the focus from the card's content,
-  \item
-        finally, the \textit{unread} indicator
-        is positioned slightly outside the inner section,
-        so that it belongs to the card itself,
-        not its content,
-        therefore it is easier to spot at a glance.
+      \item
+            the rounded corners take the focus away from the card frame,
+            and provide a~natural, neutral enclosure for the notification,
+      \item
+            the inner padding is of equal size in each direction
+            to provide optical stability,
+      \item
+            the distance between the logo and title -- subtitle combo
+            is the same size as the padding,
+            making the logo appear centered,
+      \item
+            the title -- subtitle combo itself
+            is centered vertically relative to the logo,
+      \item
+            the distances between the logo,
+            notification body, and app name -- timestamp combo are shorter
+            in order to make the inner section more connected,
+      \item
+            the controls are centered relative to the app name -- timestamp combo,
+      \item
+            the \textit{unread} indicator is unobtrusive enough
+            not to steal all the focus from the card's content,
+      \item
+            finally, the \textit{unread} indicator
+            is positioned slightly outside the inner section,
+            so that it belongs to the card itself,
+            not its content,
+            therefore it is easier to~spot at a glance.
 \end{itemize}
 
 \begin{figure}[ht]
-  \centering
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{img/card_labeled.png}
-    \caption{Card with labeled elements}
-    \label{fig:card-with-labeled-elements}
-  \end{minipage}\hfill
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \includegraphics[width=0.9\textwidth,keepaspectratio]{img/card_guides.png}
-    \caption{Card with guides}
-    \label{fig:card-with-guides}
-  \end{minipage}
+      \centering
+      \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth,keepaspectratio]{img/card_labeled.png}
+            \caption{Card with labeled elements}
+            \label{fig:card-with-labeled-elements}
+      \end{minipage}\hfill
+      \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth,keepaspectratio]{img/card_guides.png}
+            \caption{Card with guides}
+            \label{fig:card-with-guides}
+      \end{minipage}
 \end{figure}
