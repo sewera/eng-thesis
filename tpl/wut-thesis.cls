@@ -289,55 +289,25 @@
 
     \begin{center}
         { \tgherosfont
-            \includegraphics[width=\textwidth]{tpl/\@lang/header/eiti.pdf} \\
+            \includegraphics[width=\textwidth]{tpl/pl/header/eiti.pdf} \\
             \vspace{3em}
-            \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 Instytut \@institute \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{en} = 0
-                Institute of \@institute \\
-            \fi
             \vspace{4em}
-            \includegraphics[width=\textwidth]{tpl/\@lang/title/\@ThesisType.pdf} \\
+            \includegraphics[width=\textwidth]{tpl/pl/title/\@ThesisType.pdf} \\
             \vspace{2em}
-            \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 na~kierunku \@fieldofstudy \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{en} = 0
-                In~the~field~of~study: \textit{\@fieldofstudy}, \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 w~specjalności \@specialization \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{en} = 0
-                and~specialization: \textit{\@specialization}. \\
-            \fi
             \vspace{4em}
             \large \textbf{\@title} \\
             \vspace{4em}
             \LARGE \@author \\
             \normalsize
-            \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 Numer~albumu \@studentnumber \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{en} = 0
-                Student record book number: \@studentnumber \\
-            \fi
             \vspace{4em}
-            \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 promotor \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{en} = 0
-                Thesis supervisor \\
-            \fi
             \@supervisor \\
             \vfill
-            \ifnum \pdf@strcmp{\@lang}{pl} = 0
                 WARSZAWA \@date
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{en} = 0
-                WARSAW \@date
-            \fi
         } % \tgherosfont
     \end{center}
 
