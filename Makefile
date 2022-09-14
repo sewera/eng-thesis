@@ -120,17 +120,11 @@ rerender: rmout pdf
 release: $(DIST_PDF) version
 	@gh release create $(shell git tag --sort=-v:refname | head -n 1) $(DIST_PDF) --generate-notes
 
-release-unite: dist-unite version
-	@gh release create $(shell git tag --sort=-v:refname | head -n 1) $(DIST_PDF) --generate-notes
-
 version:
 	@yarn version --minor --message "chore: release"
 	@git push --follow-tags
 
 dist: $(DIST_PDF)
-
-dist-unite: $(OUT_PDF)
-	@pdfunite ./meta/title-page.pdf $(OUT_PDF) $(DIST_PDF)
 
 $(DIST_PDF): $(OUT_PDF)
 	@cp $(OUT_PDF) $(DIST_PDF)

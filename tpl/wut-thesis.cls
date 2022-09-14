@@ -420,6 +420,35 @@
     \end{figure}
 }
 
+\newcommand{\makecustomtitle}{
+    \thispagestyle{empty}
+    \pagenumbering{gobble}
+
+    \newgeometry{
+      a4paper,
+      left=25mm,
+      right=25mm,
+      top=25mm,
+      bottom=25mm,
+      bindingoffset=0mm,
+    }
+
+    {
+      \centering
+      \begin{figure}[ht]
+          \centering
+          \vspace{-55pt}
+          \noindent\makebox[\pagewidth]{
+          \includegraphics[width=1.25\textwidth]{meta/title-page.pdf}
+          }
+      \end{figure}
+    }
+
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \restoregeometry
+}
+
 %--------------------------
 % Table of Contents setup
 %--------------------------
